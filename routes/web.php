@@ -24,3 +24,7 @@ Route::get('/employee', [App\Http\Controllers\EmployeeController::class, 'index'
 Route::get('/employee/edit', [App\Http\Controllers\EmployeeController::class, 'edit'])->name('employee.edit');
 Route::get('/employee/create', [App\Http\Controllers\EmployeeController::class, 'create'])->name('employee.create');
 Route::post('/employee/create', [App\Http\Controllers\EmployeeController::class, 'store'])->name('employee.store');
+
+
+Route::get('/courier', [App\Http\Controllers\ShipmentController::class, 'index'])->name('courier.index');
+Route::get('/courier/create', [App\Http\Controllers\ShipmentController::class, 'create'])->name('courier.create');
