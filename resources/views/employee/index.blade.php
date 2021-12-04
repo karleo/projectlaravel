@@ -45,7 +45,7 @@
                 <tbody>
                 @foreach ($data as $row)
                 <tr>
-                  <td>{{$row->last_name}}</td>
+                  <td><a href="{{route('employee.edit')}}">  {{$row->last_name}} </a></td>
                   <td>{{$row->first_name}}</td>
                   <td>{{$row->middle_name}}</td>
                   <td>{{$row->birth_date}}</td>

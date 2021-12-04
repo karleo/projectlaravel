@@ -53,7 +53,7 @@ class EmployeeController extends Controller
         ]); 
  
         $rules = [ 
-            'fname' => 'required.',
+            'fname' => 'required',
             'lname' => 'required',
             'gender' => 'required',
             'bdate' => 'required',
@@ -63,6 +63,7 @@ class EmployeeController extends Controller
         ]; 
         
 		$validator = Validator::make($request->all(),$rules);
+
 
         if ($validator->fails()) {		
          return response()->json($validator->errors(), 400);
