@@ -15,9 +15,8 @@ class CityController extends Controller
      */
     public function index()
     {
-        //
-        
-        $data = City::all();
+        //        
+        $data = City::all();      
         return view ('maintenance.city.index',compact('data'));
     }
 
@@ -95,5 +94,17 @@ class CityController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function get_city(Request $request){
+        $id = $request->input('id');
+        $get_city = City::where('country_id',$id)->get();
+        $output='<option selected="" disabled="">Select City</option>';     
+  
+        foreach($get_city as $value){
+          $output.='<option value="'.$value->id.'">'.$value->name.'</option>';         
+        }    
+        return response()->json($output);
+
     }
 }

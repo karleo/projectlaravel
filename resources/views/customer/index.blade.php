@@ -1,18 +1,18 @@
 @extends('layouts.header')
 
 @section('content')
-    
+ 
 
 <section class="content-header">
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Country List</h1>
+          <h1>Customer List</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Country List</li>
+            <li class="breadcrumb-item active">Customer List</li>
           </ol>
         </div>
       </div>
@@ -27,7 +27,7 @@
 
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title col-1">  <a class="btn btn-block btn-primary" href="{{route('country.create')}}">Add</a>  </h3>
+              <h3 class="card-title col-1">  <a class="btn btn-block btn-primary" href="{{route('customer.create')}}">Add</a>  </h3>
             
             </div>
             <!-- /.card-header -->
@@ -35,29 +35,35 @@
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Name</th>
-                  <th>Code</th>
-                  <th>Action</th>                   
+                  <th>Customer Code</th>
+                  <th>Customer Name</th>
+                  <th>Country</th>
+                  <th>Company Name</th>
+                  <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach ($data as $row)
                 <tr>
-                  <td> {{$row->name}}</td>
-                  <td>{{$row->code}}</td> 
-                  <td>	
-                    <a href="{{route('country.edit', $row->id)}}" class="btn btn-sm btn-info">Edit</a> 
-										<a href="{{route('country.destroy',$row->id)}}" class="btn btn-sm btn-danger">Delete</a>  
-                  
+                  <td>{{$row->customer_code}}</td>
+                  <td>{{$row->customer_name}}</td>
+                  <td>{{$row->country->name}}</td>
+                  <td>{{$row->company_name}}</td> 
+                  <td>
+                    <a href="{{route('customer.edit',$row->id)}}" class="btn btn-sm btn-info">Edit</a>
+                    <a href="{{route('customer.destroy',$row->id)}}" class="btn btn-sm btn-danger">Delete</a>
+                  </td> 
                 </tr>
                 @endforeach 
               
                 </tbody>
                 <tfoot>
                 <tr>
-                  <th>Name</th>
-                  <th>Code</th>      
-                  <th>Action</th>         
+                    <th>Customer Code</th>
+                    <th>Customer Name</th>
+                    <th>Country</th>
+                    <th>Company Name</th>
+                    <th>Action</th>
                 </tr>
                 </tfoot>
               </table>
@@ -74,6 +80,5 @@
   </section>
   <!-- /.content -->
 
-    
 
 @endsection

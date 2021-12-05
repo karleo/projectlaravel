@@ -15,6 +15,15 @@ class CreateCouriersTable extends Migration
     {
         Schema::create('couriers', function (Blueprint $table) {
             $table->id();
+            $table->string('tracking',255)->nullable();
+            $table->string('reference',255)->nullable();
+            $table->string('shipper',255)->nullable();
+            $table->string('shipper_addrs',255)->nullable();
+            $table->string('shipper_contact',100)->nullable();
+            $table->integer('origin_country',100)->nullable();
+            $table->integer('origin_city',100)->nullable();
+            $table->string('origin_zipcode')->nullable(); 
+
             $table->timestamps();
         });
     }

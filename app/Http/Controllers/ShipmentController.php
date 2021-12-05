@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Country;
 
 class ShipmentController extends Controller
 {
@@ -14,7 +15,8 @@ class ShipmentController extends Controller
     public function index()
     {
         //
-        return view('courier.index');
+        $country = Country::all();
+        return view('courier.index',compact('country'));
     }
 
     /**
@@ -25,7 +27,9 @@ class ShipmentController extends Controller
     public function create()
     {
         //
-        return view('courier.create');
+        $country = Country::all();
+
+        return view('courier.create',compact('country'));
     }
 
     /**

@@ -51,26 +51,42 @@
                         <label for="">Shipment From</label>
                         <input type="text" class="form-control" name="shipper" id="" placeholder="Shipper Name"> 
                     </div>
-                    <div class="form-group col-3">
-                        <label for="">Contact Number</label>
-                        <input type="text" class="form-control" name="snumber" id="" placeholder="Contact Number"> 
-                    </div>
-                    <div class="form-group col-3">
+                    <div class="form-group col-6">
                       <label for="">Email Adress</label>
                       <input type="text" class="form-control" name="semail" id="" placeholder="Email Address"> 
-                  </div>
-                    <div class="form-group col-6">
+                    </div>  
+                    <div class="form-group col-12">
                         <label for="">Address</label>
                         <input type="text" class="form-control" name="saddress" id="" placeholder="Address">
                     </div>
-                    <div class="form-group col-3">
-                        <label for="">Country</label>
-                        <input type="text" class="form-control" name="scountry" id="" placeholder="Country">
+                    <div class="form-group col-4">
+                        <label for="">Contact Number</label>
+                        <input type="text" class="form-control" name="snumber" id="" placeholder="Contact Number"> 
                     </div>
-                    <div class="form-group col-3">
+                    <div class="form-group col-4">
+                        <label for="">Country</label>
+                        <select class="form-control " name="scountry" id="ocountry">
+                          @foreach ($country as $item)                              
+                            <option value={{$item->id}}> {{$item->name}}</option>
+                          @endforeach
+
+                        </select>
+                        {{-- <input type="text" class="form-control" name="scountry" id="" placeholder="Country"> --}}
+                    </div>
+                    <div class="form-group col-4">
                         <label for="">City</label>
-                        <input type="text" class="form-control" name="scity" id="" placeholder="City">
-                    </div>              
+                        <select class="form-control " name="scity" id="city" placeholder="City"> </select>
+                    </div> 
+                
+                    <div class="form-group col-3"  >
+                      <label for="">Zip Code</label>
+                      <input type="text" class="form-control" name="szipcode" id="" placeholder="Zip Code"> 
+                    </div>
+                    <div class="form-group col-3" style="display:none">
+                      <label for="">Contact Number</label>
+                      <input type="text" class="form-control" name="" id="" placeholder="Contact Number"> 
+                    </div>      
+
                 </div> 
 
               </div>              
@@ -92,30 +108,36 @@
                 <div class="form-group col-6">
                     <label for="">Consignee</label>
                     <input type="text" class="form-control" name="consignee" id="" placeholder="Consignee Name"> 
-                </div>
-                <div class="form-group col-3">
-                    <label for="">Contact Number</label>
-                    <input type="text" class="form-control" name="rnumber" id="" placeholder="Contact Number"> 
-                </div>
-                <div class="form-group col-3">
+                </div>               
+                <div class="form-group col-6">
                   <label for="">Email Address</label>
                   <input type="text" class="form-control" name="remail" id="" placeholder="Email Address"> 
               </div>
-                <div class="form-group col-6">
+                <div class="form-group col-12">
                     <label for="">Address</label>
                     <input type="text" class="form-control" name="raddress" id="" placeholder="Address">
                 </div>
-                <div class="form-group col-3">
+                <div class="form-group col-6">
+                  <label for="">Contact Number</label>
+                  <input type="text" class="form-control" name="rnumber" id="" placeholder="Contact Number"> 
+              </div>
+                <div class="form-group col-6">
                     <label for="">Zipcode</label>
                     <input type="text" class="form-control" name="rzipcode" id="" placeholder="Zipcode">
                 </div>
-                <div class="form-group col-3">
+                <div class="form-group col-4">
                     <label for="">Country</label>
-                    <input type="text" class="form-control" name="rcountry" id="" placeholder="Country">
+                    <select class="form-control" name="rcountry" id="dcountry" >
+                      @foreach ($country as $item)
+                        <option value="{{$item->id}}">{{$item->name}}</option>
+                          
+                      @endforeach
+                    </select>
+                    {{-- <input type="text" class="form-control" name="rcountry" id="" placeholder="Country"> --}}
                 </div>
-                <div class="form-group col-3">
+                <div class="form-group col-4">
                     <label for="">City</label>
-                    <input type="text" class="form-control" name="rcity" id="" placeholder="City">
+                    <select  class="form-control" name="rcity" id="dcity" placeholder="City"> </select>
                 </div>              
               </div> 
             </div> 
@@ -259,11 +281,7 @@
 <div class="card-footer">
   <button type="submit" class="btn btn-primary">Save</button>
 </div>
-</form>
-
-
-
-
+</form> 
   
 
 @endsection

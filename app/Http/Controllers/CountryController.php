@@ -69,6 +69,8 @@ class CountryController extends Controller
     public function edit($id)
     {
         //
+        $data = Country::find($id);
+        return view('maintenance.country.edit',compact('data'));
     }
 
     /**
@@ -80,7 +82,16 @@ class CountryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //     
+        $data = $request->input();
+        $country = Country::find($id); 
+        $country->name = $data['cname'];
+        $country->code = $data['code'];
+      
+        $country->save();
+        
+        return redirect('maintenance/country')->with('success',"Update");
+
     }
 
     /**
@@ -92,5 +103,11 @@ class CountryController extends Controller
     public function destroy($id)
     {
         //
+        $country = Country::find($id); 
+        $country->delete();
+        
+        return redirect('maintenance/country')->with('success',"Delete");        
+
     }
+ 
 }

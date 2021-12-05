@@ -34,6 +34,9 @@
   <link rel="stylesheet" href="{{asset('html/plugins/sweetalert2/sweetalert2.min.css')}}">
   <!-- Toastr -->
   <link rel="stylesheet" href="{{asset('html/plugins/toastr/toastr.min.css')}}">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="{{asset('html/plugins/select2/css/select2.min.css')}}">
+  <link rel="stylesheet" href="{{asset('html/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -184,10 +187,18 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{route('employee.index')}}" class="nav-link active">
+            <a href="{{route('employee.index')}}" class="nav-link">
               <i class="nav-icon fas fa-columns"></i>
               <p>
                 Employee
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{route('customer.index')}}" class="nav-link active">
+              <i class="nav-icon fas fa-columns"></i>
+              <p>
+                Customer
               </p>
             </a>
           </li>
@@ -621,6 +632,8 @@
 <script src="{{asset('html/plugins/datatables-buttons/js/buttons.print.min.js')}}"></script>
 <script src="{{asset('html/plugins/datatables-buttons/js/buttons.colVis.min.js')}}"></script>
  
+<!-- Select2 -->
+<script src="{{asset('html/plugins/select2/js/select2.full.min.js')}}"></script>
 <!-- Page specific script -->
 <script>
 $(function () {
@@ -646,5 +659,55 @@ $(function () {
     });
   });
 </script>
+
+
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#ocountry').change(function(){
+      var id = $(this).val();
+      var _token = $('input[name="_token"]').val();   
+      $.ajax({
+        url: "{{ route('city.get_city') }}",
+        method: 'POST',
+        dataType: 'JSON',
+        data:{id:id, _token:_token},      
+        success:function(result){ 
+          $('#city').html(result);
+        }
+      })
+    });
+
+    $('#dcountry').change(function(){
+      var id = $(this).val();
+      var _token = $('input[name="_token"]').val();   
+      $.ajax({
+        url: "{{ route('city.get_city') }}",
+        method: 'POST',
+        dataType: 'JSON',
+        data:{id:id, _token:_token},      
+        success:function(result){ 
+          $('#dcity').html(result);
+        }
+      })
+    });
+
+
+  });   
+</script>
+
+<script>
+  $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+
+    //Initialize Select2 Elements
+    $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    })
+  });
+</script>
+
 </body>
 </html>

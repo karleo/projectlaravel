@@ -38,8 +38,22 @@ Route::post('/maintenance/status/create', [App\Http\Controllers\CourierStatusCon
 Route::get('/maintenance/country', [App\Http\Controllers\CountryController::class, 'index'])->name('country.index');
 Route::get('/maintenance/country/create', [App\Http\Controllers\CountryController::class, 'create'])->name('country.create');
 Route::post('/maintenance/country/create', [App\Http\Controllers\CountryController::class, 'store'])->name('country.store');
+Route::get('/maintenance/country/edit/{id}', [App\Http\Controllers\CountryController::class, 'edit'])->name('country.edit');
+Route::put('/maintenance/country/update/{id}', [App\Http\Controllers\CountryController::class, 'update'])->name('country.update');
+Route::get('/maintenance/country/delete/{id}', [App\Http\Controllers\CountryController::class, 'destroy'])->name('country.destroy');
+Route::post('/maintenance/country/delete/{id}', [App\Http\Controllers\CountryController::class, 'destroy'])->name('country.destroy');
 
 //city
 Route::get('/maintenance/city', [App\Http\Controllers\CityController::class, 'index'])->name('city.index');
 Route::get('/maintenance/city/create', [App\Http\Controllers\CityController::class, 'create'])->name('city.create');
 Route::post('/maintenance/city/create', [App\Http\Controllers\CityController::class, 'store'])->name('city.store');
+Route::post('/get_city', [App\Http\Controllers\CityController::class, 'get_city'])->name('city.get_city');
+
+//customer
+Route::get('/customer', [App\Http\Controllers\CustomerController::class, 'index'])->name('customer.index');
+Route::get('/customer/create', [App\Http\Controllers\CustomerController::class, 'create'])->name('customer.create');
+Route::post('/customer/create', [App\Http\Controllers\CustomerController::class, 'store'])->name('customer.store');
+Route::get('/customer/edit/{id}', [App\Http\Controllers\CustomerController::class, 'edit'])->name('customer.edit');
+Route::put('/customer/update/{id}', [App\Http\Controllers\CustomerController::class, 'update'])->name('customer.update');
+Route::get('/customer/delete', [App\Http\Controllers\CustomerController::class, 'destroy'])->name('customer.destroy');
+Route::post('/customer/delete', [App\Http\Controllers\CustomerController::class, 'destroy'])->name('customer.destroy');
