@@ -28,3 +28,18 @@ Route::post('/employee/create', [App\Http\Controllers\EmployeeController::class,
 
 Route::get('/courier', [App\Http\Controllers\ShipmentController::class, 'index'])->name('courier.index');
 Route::get('/courier/create', [App\Http\Controllers\ShipmentController::class, 'create'])->name('courier.create');
+
+//status
+Route::get('/maintenance/status', [App\Http\Controllers\CourierStatusContorller::class, 'index'])->name('status.index');
+Route::get('/maintenance/status/create', [App\Http\Controllers\CourierStatusContorller::class, 'create'])->name('status.create');
+Route::post('/maintenance/status/create', [App\Http\Controllers\CourierStatusContorller::class, 'store'])->name('status.store');
+
+//coutnry
+Route::get('/maintenance/country', [App\Http\Controllers\CountryController::class, 'index'])->name('country.index');
+Route::get('/maintenance/country/create', [App\Http\Controllers\CountryController::class, 'create'])->name('country.create');
+Route::post('/maintenance/country/create', [App\Http\Controllers\CountryController::class, 'store'])->name('country.store');
+
+//city
+Route::get('/maintenance/city', [App\Http\Controllers\CityController::class, 'index'])->name('city.index');
+Route::get('/maintenance/city/create', [App\Http\Controllers\CityController::class, 'create'])->name('city.create');
+Route::post('/maintenance/city/create', [App\Http\Controllers\CityController::class, 'store'])->name('city.store');
