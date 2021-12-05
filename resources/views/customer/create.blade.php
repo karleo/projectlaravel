@@ -1,5 +1,4 @@
 @extends('layouts.header')
-
 @section('content') 
 
 <!-- section header-->
@@ -105,6 +104,7 @@
 
               <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Save</button>
+                <a href="{{route('customer.index')}}" class="btn btn-info">Back</a>
               </div>
             </form>
           </div>

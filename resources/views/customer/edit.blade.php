@@ -102,10 +102,11 @@
                     </div> 
                 </div>
               </div>
-              <!-- /.card-body -->
-
+              <!-- /.card-body --> 
+              
               <div class="card-footer">
-                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="submit" class="btn btn-primary">Update</button>
+                <a href="{{route('customer.index')}}" class="btn btn-info">Back</a>
               </div>
             </form>
           </div>

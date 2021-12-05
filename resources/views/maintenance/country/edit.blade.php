@@ -1,7 +1,6 @@
 @extends('layouts.header')
 
-@section('content')
-
+@section('content') 
 
 <!-- section header-->
 <section class="content-header">
@@ -19,8 +18,7 @@
       </div>
     </div><!-- /.container-fluid -->
   </section>
-<!-- section end-->
-
+<!-- section end--> 
     
 <section class="content">
     <div class="container-fluid">
@@ -56,9 +54,7 @@
             </form>
           </div>
           <!-- /.card --> 
-
         </div>
- 
          
       </div>
       <!-- /.row -->
