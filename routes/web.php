@@ -55,5 +55,5 @@ Route::get('/customer/create', [App\Http\Controllers\CustomerController::class, 
 Route::post('/customer/create', [App\Http\Controllers\CustomerController::class, 'store'])->name('customer.store');
 Route::get('/customer/edit/{id}', [App\Http\Controllers\CustomerController::class, 'edit'])->name('customer.edit');
 Route::put('/customer/update/{id}', [App\Http\Controllers\CustomerController::class, 'update'])->name('customer.update');
-Route::get('/customer/delete', [App\Http\Controllers\CustomerController::class, 'destroy'])->name('customer.destroy');
-Route::post('/customer/delete', [App\Http\Controllers\CustomerController::class, 'destroy'])->name('customer.destroy');
+Route::get('/customer/delete/{id}', [App\Http\Controllers\CustomerController::class, 'destroy'])->name('customer.destroy');
+Route::post('/customer/delete/{id}', [App\Http\Controllers\CustomerController::class, 'destroy'])->name('customer.destroy');

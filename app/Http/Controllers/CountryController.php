@@ -90,7 +90,7 @@ class CountryController extends Controller
       
         $country->save();
         
-        return redirect('maintenance/country')->with('success',"Update");
+        return redirect('maintenance/country')->with('success',"Updated");
 
     }
 
@@ -106,7 +106,7 @@ class CountryController extends Controller
         $country = Country::find($id); 
         $country->delete();
         
-        return redirect('maintenance/country')->with('success',"Delete");        
+        return redirect('maintenance/country')->with('success',"Deleted");        
 
     }
  

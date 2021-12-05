@@ -20,8 +20,8 @@ class CreateCouriersTable extends Migration
             $table->string('shipper',255)->nullable();
             $table->string('shipper_addrs',255)->nullable();
             $table->string('shipper_contact',100)->nullable();
-            $table->integer('origin_country',100)->nullable();
-            $table->integer('origin_city',100)->nullable();
+            $table->integer('origin_country')->nullable();
+            $table->integer('origin_city')->nullable();
             $table->string('origin_zipcode')->nullable(); 
 
             $table->timestamps();

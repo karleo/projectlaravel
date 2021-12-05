@@ -53,8 +53,8 @@ class CustomerController extends Controller
             'email' => $data['email'],
             'cellphone' => $data['cellphone'],
             'zipcode' => $data['zipcode'],
-            'country' => $data['country'],
-            'city' => $data['city'],
+            'country_id' => $data['country'],
+            'city_id' => $data['city'],
             'company_name' => $data['compnayname'],
         ]);
 
@@ -113,7 +113,7 @@ class CustomerController extends Controller
         $customer->company_name = $data['compnayname'];
         $customer->save();
 
-        return redirect('customer')->with('success','Update');
+        return redirect('customer')->with('success','Updated');
 
     }
 
@@ -126,6 +126,9 @@ class CustomerController extends Controller
     public function destroy($id)
     {
         //
+        $customer = Customer::find($id);
+        $customer->delete();
+        return redirect('customer')->with('success','Deleted');
 
     }
 }

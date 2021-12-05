@@ -51,7 +51,7 @@
                   <td>{{$row->company_name}}</td> 
                   <td>
                     <a href="{{route('customer.edit',$row->id)}}" class="btn btn-sm btn-info">Edit</a>
-                    <a href="{{route('customer.destroy',$row->id)}}" class="btn btn-sm btn-danger">Delete</a>
+                    {{-- <a href="{{route('customer.destroy',$row->id)}}" class="btn btn-sm btn-danger">Delete</a> --}}
                   </td> 
                 </tr>
                 @endforeach 
