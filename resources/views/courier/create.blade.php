@@ -62,22 +62,7 @@
                     <div class="form-group col-4">
                         <label for="">Contact Number</label>
                         <input type="text" class="form-control" name="snumber" id="" placeholder="Contact Number"> 
-                    </div>
-                    <div class="form-group col-4">
-                        <label for="">Country</label>
-                        <select class="form-control " name="scountry" id="ocountry">
-                          @foreach ($country as $item)                              
-                            <option value={{$item->id}}> {{$item->name}}</option>
-                          @endforeach
-
-                        </select>
-                        {{-- <input type="text" class="form-control" name="scountry" id="" placeholder="Country"> --}}
-                    </div>
-                    <div class="form-group col-4">
-                        <label for="">City</label>
-                        <select class="form-control " name="scity" id="city" placeholder="City"> </select>
                     </div> 
-                
                     <div class="form-group col-3"  >
                       <label for="">Zip Code</label>
                       <input type="text" class="form-control" name="szipcode" id="" placeholder="Zip Code"> 
@@ -85,8 +70,21 @@
                     <div class="form-group col-3" style="display:none">
                       <label for="">Contact Number</label>
                       <input type="text" class="form-control" name="" id="" placeholder="Contact Number"> 
-                    </div>      
-
+                    </div>        
+                    <div class="form-group col-6">
+                      <label for="">Country</label>
+                      <select class="form-control " name="scountry" id="ocountry">
+                        <option selected="" disabled="">Select Country</option> 
+                        @foreach ($country as $item)                              
+                          <option value={{$item->id}}> {{$item->name}}</option>
+                        @endforeach
+                      </select>
+                        {{-- <input type="text" class="form-control" name="scountry" id="" placeholder="Country"> --}}
+                    </div>
+                      <div class="form-group col-4">
+                          <label for="">City</label>
+                          <select class="form-control " name="scity" id="city" placeholder="City"> </select>
+                      </div>  
                 </div> 
 
               </div>              
@@ -128,9 +126,9 @@
                 <div class="form-group col-4">
                     <label for="">Country</label>
                     <select class="form-control" name="rcountry" id="dcountry" >
+                      <option selected="" disabled="">Select Country</option> 
                       @foreach ($country as $item)
-                        <option value="{{$item->id}}">{{$item->name}}</option>
-                          
+                        <option value="{{$item->id}}">{{$item->name}}</option>                          
                       @endforeach
                     </select>
                     {{-- <input type="text" class="form-control" name="rcountry" id="" placeholder="Country"> --}}

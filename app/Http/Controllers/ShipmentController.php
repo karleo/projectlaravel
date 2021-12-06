@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Country;
+use App\Models\Courier;
 
 class ShipmentController extends Controller
 {
@@ -28,7 +29,6 @@ class ShipmentController extends Controller
     {
         //
         $country = Country::all();
-
         return view('courier.create',compact('country'));
     }
 
@@ -41,6 +41,23 @@ class ShipmentController extends Controller
     public function store(Request $request)
     {
         //
+        $data = $request->input();
+
+        $country = Country::all();
+
+        Courier::create([
+            'shipper' => $data['shipper'],
+            'shipper_email' => $data['semail'],
+            'shipper_addrs' => $data['saddress'],
+            'shipper_contact' => $data['snumber'], 
+            'origin_country_id' => $data['scountry'], 
+            'origin_city_id' => $data['scity'], 
+            'origin_zipcode' => $data['szipcode'],             
+            'shipper_contact' => $data['snumber'], 
+
+        ]);
+
+        return redirect('courier'); 
     }
 
     /**

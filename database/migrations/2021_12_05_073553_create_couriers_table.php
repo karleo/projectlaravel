@@ -20,9 +20,25 @@ class CreateCouriersTable extends Migration
             $table->string('shipper',255)->nullable();
             $table->string('shipper_addrs',255)->nullable();
             $table->string('shipper_contact',100)->nullable();
-            $table->integer('origin_country')->nullable();
-            $table->integer('origin_city')->nullable();
+            $table->string('shipper_email',200)->nullable();
+            $table->unsignedInteger('origin_country_id')->nullable();
+            $table->unsignedInteger('origin_city_id')->nullable();            
+            $table->string('origin_code')->nullable(); 
             $table->string('origin_zipcode')->nullable(); 
+            
+            $table->string('consignee',255)->nullable();
+            $table->string('consignee_addrs',255)->nullable();
+            $table->string('consignee_contact',100)->nullable();
+            $table->string('consignee_email',100)->nullable();
+            $table->unsignedInteger('dest_country_id')->nullable();
+            $table->unsignedInteger('dest_city_id')->nullable();
+            $table->string('dest_code')->nullable(); 
+            $table->string('dest_zipcode')->nullable(); 
+
+            $table->float('total_weight',8,2)->nullable(); 
+            $table->float('total_vol_weight',8,2)->nullable(); 
+            $table->float('total_charge_weight',8,2)->nullable(); 
+            $table->float('custom_value',8,2)->nullable(); 
 
             $table->timestamps();
         });
