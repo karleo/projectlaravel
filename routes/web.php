@@ -40,8 +40,8 @@ Route::get('/maintenance/country/create', [App\Http\Controllers\CountryControlle
 Route::post('/maintenance/country/create', [App\Http\Controllers\CountryController::class, 'store'])->name('country.store');
 Route::get('/maintenance/country/edit/{id}', [App\Http\Controllers\CountryController::class, 'edit'])->name('country.edit');
 Route::put('/maintenance/country/update/{id}', [App\Http\Controllers\CountryController::class, 'update'])->name('country.update');
-Route::get('/maintenance/country/delete/{id}', [App\Http\Controllers\CountryController::class, 'destroy'])->name('country.destroy');
-Route::post('/maintenance/country/delete/{id}', [App\Http\Controllers\CountryController::class, 'destroy'])->name('country.destroy');
+// Route::get('/maintenance/country/delete/{id}', [App\Http\Controllers\CountryController::class, 'destroy'])->name('country.destroy');
+// Route::post('/maintenance/country/delete/{id}', [App\Http\Controllers\CountryController::class, 'destroy'])->name('country.destroy');
 
 //city
 Route::get('/maintenance/city', [App\Http\Controllers\CityController::class, 'index'])->name('city.index');
@@ -55,5 +55,5 @@ Route::get('/customer/create', [App\Http\Controllers\CustomerController::class, 
 Route::post('/customer/create', [App\Http\Controllers\CustomerController::class, 'store'])->name('customer.store');
 Route::get('/customer/edit/{id}', [App\Http\Controllers\CustomerController::class, 'edit'])->name('customer.edit');
 Route::put('/customer/update/{id}', [App\Http\Controllers\CustomerController::class, 'update'])->name('customer.update');
-Route::get('/customer/delete/{id}', [App\Http\Controllers\CustomerController::class, 'destroy'])->name('customer.destroy');
-Route::post('/customer/delete/{id}', [App\Http\Controllers\CustomerController::class, 'destroy'])->name('customer.destroy');
+// Route::get('/customer/delete/{id}', [App\Http\Controllers\CustomerController::class, 'destroy'])->name('customer.destroy');
+// Route::post('/customer/delete/{id}', [App\Http\Controllers\CustomerController::class, 'destroy'])->name('customer.destroy');

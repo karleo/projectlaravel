@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\File;
 use App\Models\Employee;
+use App\Models\Country;
+use App\Models\City;
 use DB;
 
 class EmployeeController extends Controller
@@ -29,7 +32,8 @@ class EmployeeController extends Controller
     public function create()
     {
         //
-        return view('employee.create');
+        $country = Country::all();
+        return view('employee.create',compact('country'));
     }
 
     /**
@@ -41,7 +45,10 @@ class EmployeeController extends Controller
     public function store(Request $request)
     {
         //
-     
+  
+        // $test = $request->file('image')->guessExtension();
+        // dd($test);
+
         $this->validate($request, [
             'fname' => 'required',
             'lname' => 'required',
@@ -50,6 +57,7 @@ class EmployeeController extends Controller
             'hdate' => 'required',
             'age' => 'required',
             'address01' => 'required',
+            'image' => 'required|mimes:jpg,png,jpeg|max:5048',
         ]); 
  
         $rules = [ 
@@ -60,6 +68,8 @@ class EmployeeController extends Controller
             'hdate' => 'required',
             'age' => 'required',
             'address01' => 'required',
+            'image' => 'required|mimes:jpg,png,jpeg|max:5048',
+
         ]; 
         
 		$validator = Validator::make($request->all(),$rules);
@@ -69,10 +79,14 @@ class EmployeeController extends Controller
          return response()->json($validator->errors(), 400);
 		}
 		else{ 
+            
             $data = $request->input();
+         
+            $newImageName = time() . '-' . $data['fname'] . ' ' .$data['lname'] . '.'. $request->image->extension();
+            // $request->image->getClientOriginalName();         
 
-            try{          
-
+            $request->image->move(public_path('files/images'), $newImageName);
+        // try{
             Employee::create([
                 'first_name' =>  $data['fname'],
                 'last_name' =>  $data['lname'],
@@ -83,11 +97,14 @@ class EmployeeController extends Controller
                 'age' => $data['age'],
                 'address01' => $data['address01'],
                 'address02' => $data['address02'],
+                'image' =>  $newImageName,
             ]);
-        }
-        catch(Exception $e){
-            return redirect('employee')->with('failed',"operation failed");
-        }
+
+        // }
+        // catch(Exception $e){
+        //     return redirect('employee')->with('failed',"operation failed");
+        // }
+
             return redirect('employee')->with('success',"Added");
         }   
 

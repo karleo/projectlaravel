@@ -24,6 +24,7 @@ class Employee extends Model
       'birth_date',
       'hire_date',
       'active',
+      'image',
          
     ];
 

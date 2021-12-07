@@ -34,7 +34,7 @@
 
             <!-- /.card-header -->
             <!-- form start -->
-            <form action="{{route('employee.store')}}" method="post" role="form">
+            <form action="{{route('employee.store')}}" method="post" role="form" enctype="multipart/form-data">
                 @csrf
                 {{-- @if ($errors->any())
                 <div class="alert alert-danger">
@@ -72,14 +72,11 @@
                   </div>
                 <div class="form-group col-3">
                   <label for="exampleInputFile">Photo Profile</label>
-                  <div class="input-group">
-                    <div class="custom-file">
-                      <input type="file" class="custom-file-input" id="exampleInputFile">
-                      <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                    </div>
-                    <div class="input-group-append">
-                      <span class="input-group-text">Upload</span>
-                    </div>
+                  <div class="form-group">
+                    <div class="form-group">
+                      <input type="file" class="form-control" name="image" id="image">
+                      <label  for="">Choose file</label>                 
+                    </div> 
                   </div>
                 </div>
                 </div>
@@ -137,6 +134,26 @@
                     </div> 
                 </div>
 
+                <div class="row"> 
+                  <div class="form-group col-6">
+                      <label for="">Country</label>
+                      <select class="form-control" name="country" id="ocountry">
+                        <option selected="" disabled="">Select Country</option> 
+                        @foreach ($country as $item)                              
+                          <option value={{$item->id}}> {{$item->name}}</option>
+                        @endforeach
+                      </select>
+                      {{-- <input type="text" class="form-control" name="country" id=" " placeholder="Country">  --}}
+                  </div>
+                  <div class="form-group col-6">
+                      <label for=" ">City</label>
+                      <select class="form-control" name="city" id="city"> </select>
+                      {{-- <input type="text" class="form-control" name="city" id="" placeholder="City"> --}}
+                  </div> 
+                </div>
+
+
+
               </div>
               <!-- /.card-body -->
 
@@ -154,6 +171,124 @@
       <!-- /.row -->
     </div><!-- /.container-fluid -->
   </section>
+
+
+	<section class="content">
+    <div class="container-fluid">
+      <div class="row">
+    <div class="col-md-6">
+       <div class="card card-primary">
+      <div class="card-header">
+        <h3 class="card-title">Documents</h3>
+         </div>
+        <!-- <form role="form"> -->
+        <div class="card-body">
+          <div class="row">
+            <!-- /.card-header -->
+            <div class="card-body p-0" >
+              <table class="table table-sm">
+                <thead>
+                  <tr>
+                    <th   class='text-center'><b>Documents Name</b></th>
+                    <th class='text-center'><b>File Name	</b></th> 
+                    <th class='text-center'>Action</th>										 
+                  </tr>
+                </thead>
+                <tbody class='items'>
+                {{-- @foreach($d_courier as $data) --}}
+                <tr>
+                  {{-- <td class='text-center'style="width: 30%;">{{$data->detail_description}}</td>
+                  <td class='text-center'>{{$data->detail_qnty}}</td>
+                  <td class='text-center'>{{ $data->detail_weight }} </td>
+                  <td class='text-center'>{{ $data->detail_length }}  </td>
+                  <td class='text-center'>{{$data->detail_width}}</td>
+                  <td class='text-center'>{{$data->detail_height}}</td>
+                  <td style="width: 10%;" class='text-center'>{{$data->detail_vol}}</td>
+                  <td class='text-center' > 
+              
+                    <a href="{{route('shipment.editd',$data->id)}}" class="btn btn-sm btn-info" data-toggle="modal" data-target="#emodal-xl">Edit</a>
+                
+                    <a href="{{route('shipment.delete',$data->id)}}" class="btn btn-sm btn-danger">Delete</a>  
+                   </td> --}}
+                </tr>
+                {{-- @endforeach --}}
+                </tbody>
+              </table>
+            </div>
+                      </div>
+                  </div>
+         <div class="col-3">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-xl">
+            Add documents
+          </button>
+        </div>
+      </div>
+       </div>
+    </div>
+   </div>
+</section>
+ 
+
+ 	<!-- /.modal-content -->
+	 <div class="modal fade" id="modal-xl">
+		<div class="col-md-12">
+			<div class="modal-dialog modal-xl">
+			<div class="modal-content">
+				<div class="modal-header">
+				<h4 class="modal-title">Details</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<form action=" " method="POST" role="modal">
+					@csrf
+				<div class="card-body">
+					<div class="row">
+						<div class="modal-body">
+						</div>
+					</div>
+					<div class="row">
+					<div class="form-group col-8">
+							<label for="exampleInputPassword1">Item Description</label>
+							<textarea type="text" class="form-control" name="detail_description" id="exampleInputPassword1" placeholder="Item Description "></textarea>
+						</div>
+						<div class="form-group col-4">
+							<label for="exampleInputPassword1">Quantity</label>
+							<input type="number" class="form-control" name="detail_qnty" id="exampleInputPassword1" placeholder="Quantity">
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-sm-12 col-md-3">
+								<label for="exampleInputPassword1">Weight (kg)</label>
+								<input type="text" class="form-control" name="detail_weight" id="exampleInputPassword1" placeholder="weigth"></textarea>
+							</div>
+							<div class="form-group col-sm-12 col-md-9">
+								<label for="exampleInputPassword1">Dimension (cm)</label>
+								<div class="input-group">
+								<input type="number" class="form-control" name="detail_length" id="exampleInputPassword1" placeholder="length">
+								<div class="cross strong text__color-gray-darker text__size-smaller">&nbsp; x &nbsp;</div>
+								<input type="number" class="form-control" name="detail_width" id="exampleInputPassword1" placeholder="width">
+								<div class="cross strong text__color-gray-darker text__size-smaller">&nbsp; x &nbsp;</div>
+								<input type="number" class="form-control" name="detail_height" id="exampleInputPassword1" placeholder="height">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer justify-content-between">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-primary">Add boxes</button>
+				</div>
+			</div>
+			</form>
+			</div>
+			<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+		<!-- /.modal -->
+
+
+
 
 
 @endsection
