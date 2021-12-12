@@ -157,4 +157,8 @@ class EmployeeController extends Controller
     {
         //
     }
+
+    public function employee_doc(Request $request){
+
+    }
 }
