@@ -40,16 +40,18 @@
                   <th>Middle Name</th>
                   <th>Birth Date</th>
                   <th>Date Hire</th>
+                  <th>Photo</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach ($data as $row)
                 <tr>
-                  <td><a href="{{route('employee.edit')}}">  {{$row->last_name}} </a></td>
+                  <td><a href="{{route('employee.edit', $row->id)}}">  {{$row->last_name}} </a></td>
                   <td>{{$row->first_name}}</td>
                   <td>{{$row->middle_name}}</td>
                   <td>{{$row->birth_date}}</td>
                   <td>{{$row->hire_date}}</td>
+                  <td><img src="{{asset('files/images/' . $row->image )}}" alt="avatar" height="50" width="70"> </td>
                 
                   
                 </tr>
@@ -63,6 +65,7 @@
                     <th>Middle Name</th>
                     <th>Birth Date</th>
                     <th>Date Hire</th>       
+                    <th>Photo</th>
                 </tr>
                 </tfoot>
               </table>

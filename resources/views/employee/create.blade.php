@@ -71,11 +71,10 @@
                     @endif
                   </div>
                 <div class="form-group col-3">
-                  <label for="exampleInputFile">Photo Profile</label>
+                  <label for="">Photo Profile</label>
                   <div class="form-group">
                     <div class="form-group">
                       <input type="file" class="form-control" name="image" id="image">
-                      <label  for="">Choose file</label>                 
                     </div> 
                   </div>
                 </div>
@@ -235,7 +234,7 @@
 			<div class="modal-dialog modal-xl">
 			<div class="modal-content">
 				<div class="modal-header">
-				<h4 class="modal-title">Details</h4>
+				<h4 class="modal-title">Documents Details</h4>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
@@ -249,34 +248,19 @@
 					</div>
 					<div class="row">
 					<div class="form-group col-8">
-							<label for="exampleInputPassword1">Item Description</label>
-							<textarea type="text" class="form-control" name="detail_description" id="exampleInputPassword1" placeholder="Item Description "></textarea>
+							<label for="exampleInputPassword1">File Description</label>
+							<input type="text" class="form-control" name="detail_description" id="exampleInputPassword1" placeholder="Item Description "></textarea>
 						</div>
 						<div class="form-group col-4">
-							<label for="exampleInputPassword1">Quantity</label>
-							<input type="number" class="form-control" name="detail_qnty" id="exampleInputPassword1" placeholder="Quantity">
+							<label for="exampleInputPassword1">Documents</label>
+              <input type="file" class="form-control" name="docs" id="">
 						</div>
 					</div>
-					<div class="row">
-						<div class="form-group col-sm-12 col-md-3">
-								<label for="exampleInputPassword1">Weight (kg)</label>
-								<input type="text" class="form-control" name="detail_weight" id="exampleInputPassword1" placeholder="weigth"></textarea>
-							</div>
-							<div class="form-group col-sm-12 col-md-9">
-								<label for="exampleInputPassword1">Dimension (cm)</label>
-								<div class="input-group">
-								<input type="number" class="form-control" name="detail_length" id="exampleInputPassword1" placeholder="length">
-								<div class="cross strong text__color-gray-darker text__size-smaller">&nbsp; x &nbsp;</div>
-								<input type="number" class="form-control" name="detail_width" id="exampleInputPassword1" placeholder="width">
-								<div class="cross strong text__color-gray-darker text__size-smaller">&nbsp; x &nbsp;</div>
-								<input type="number" class="form-control" name="detail_height" id="exampleInputPassword1" placeholder="height">
-							</div>
-						</div>
-					</div>
+				 
 				</div>
 				<div class="modal-footer justify-content-between">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					<button type="submit" class="btn btn-primary">Add boxes</button>
+					<button type="submit" class="btn btn-primary">Add document</button>
 				</div>
 			</div>
 			</form>

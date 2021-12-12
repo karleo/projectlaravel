@@ -127,10 +127,12 @@ class EmployeeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */ 
-    public function edit()
+    public function edit($id)
     {
         //
-        return view('employee.edit');
+        $data = Employee::find($id);
+        // dd($data);
+        return view('employee.edit',compact('data'));
     }
 
     /**
