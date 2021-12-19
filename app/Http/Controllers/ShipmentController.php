@@ -53,7 +53,15 @@ class ShipmentController extends Controller
             'origin_country_id' => $data['scountry'], 
             'origin_city_id' => $data['scity'], 
             'origin_zipcode' => $data['szipcode'],             
-            'shipper_contact' => $data['snumber'], 
+            'origin_code' => $data[''], 
+
+            'consignee' => $data['consignee'],
+            'consignee_addrs' => $data['raddress'],
+            'consignee_email' => $data['remail'],
+            'consignee_contact' => $data['rnumber'], 
+            'dest_country_id' => $data['rcountry'], 
+            'dest_city_id' => $data['rcity'], 
+            'dest_zipcode' => $data['rzipcode'],       
 
         ]);
 
