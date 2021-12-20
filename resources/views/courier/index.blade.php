@@ -38,30 +38,39 @@
                   <th>Date</th>
                   <th>Tracking</th>
                   <th>Reference</th>
-                  <th>Shipment Details</th>
-                  <th>Quantity</th>
+                  <th>From</th>
+                  <th>To</th>
                   <th>Weight</th>
                   <th>Status</th>
+                  <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
-     
-                <tr>
-              
-                  
-                </tr>
-             
-              
+                  @foreach ($data as $row) 
+                <tr> 
+                  <td>{{$row->tracking}}  </td>
+                  <td>{{$row->tracking}}  </td>
+                  <td>{{$row->reference}}  </td>
+                  <td>{{$row->country->name}} - {{$row->city->name}}  </td>
+                  <td>{{$row->dest_country->name}} - {{$row->dest_city->name}}  </td>
+                  <td>{{$row->tracking}}  </td>
+                  <td>{{$row->tracking}}  </td>
+                  <td><a href="{{ route('courier.label', $row->id)}}" class="fas fa-print" target="_blank" data-toggle="tooltip" data-placement="top" title="Print Label"></a>  
+                      <a href="{{ route('courier.label', $row->id)}}" class="fas fa-marker" target="_blank" data-toggle="tooltip" data-placement="top" title="Edit Status"></a> 
+                  </td>
+                </tr> 
+                @endforeach
                 </tbody>
                 <tfoot>
                 <tr>
-                    <th>Date</th>
-                    <th>Tracking</th>
-                    <th>Reference</th>
-                    <th>Shipment Details</th>
-                    <th>Quantity</th>
-                    <th>Weight</th>
-                    <th>Status</th>
+                  <th>Date</th>
+                  <th>Tracking</th>
+                  <th>Reference</th>
+                  <th>From</th>
+                  <th>To</th>
+                  <th>Weight</th>
+                  <th>Status</th>
+                  <th>Action</th> 
                 </tr>
                 </tfoot>
               </table>

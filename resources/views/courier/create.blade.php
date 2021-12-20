@@ -7,7 +7,13 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Shipment Form</h1>
+          <h1>Shipment Form</h1>  
+          <div class="row">
+            <div class="col-sm-3">
+              <label for="">Tracking</label>  
+              <input type="text" name="tracking" value="{{$data}}" readonly disabled> 
+            </div>
+          </div>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -34,7 +40,7 @@
 
             <!-- /.card-header -->
             <!-- form start -->
-            <form action="{{route('employee.store')}}" method="post" role="form">
+            <form action="{{route('courier.store')}}" method="post" role="form">
                 @csrf
                 {{-- @if ($errors->any())
                 <div class="alert alert-danger">
@@ -142,6 +148,13 @@
           </div> 
         </div> 
     <!-- End Consignee -->        
+
+
+    <div class="card-footer">
+      <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+  </form>
+ 
 
       </div> 
       <!-- /.row --> 
@@ -275,11 +288,6 @@
 		</div>
 		<!-- /.modal -->
 
-
-<div class="card-footer">
-  <button type="submit" class="btn btn-primary">Save</button>
-</div>
-</form> 
-  
+ 
 
 @endsection

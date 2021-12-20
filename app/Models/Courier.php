@@ -36,4 +36,21 @@ class Courier extends Model
 
     ];
 
+    public function city(){
+        return $this->belongsTo(City::class,  'origin_city_id','id');
+    }
+
+    public function country(){
+        return $this->belongsTo(Country::class,  'origin_country_id','id');
+    }
+
+    public function dest_country(){
+        return $this->belongsTo(Country::class,  'dest_country_id','id');
+    }
+
+    public function dest_city(){
+        return $this->belongsTo(City::class,  'dest_city_id','id');
+    }
+
+
 }

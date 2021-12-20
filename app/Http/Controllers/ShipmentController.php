@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Country;
 use App\Models\Courier;
+use PDF;
 
 class ShipmentController extends Controller
 {
@@ -17,7 +18,8 @@ class ShipmentController extends Controller
     {
         //
         $country = Country::all();
-        return view('courier.index',compact('country'));
+        $data = Courier::all();
+        return view('courier.index',compact('country','data'));
     }
 
     /**
@@ -29,7 +31,16 @@ class ShipmentController extends Controller
     {
         //
         $country = Country::all();
-        return view('courier.create',compact('country'));
+
+        $maxID = Courier::max('tracking');        
+        if (is_numeric($maxID)) {
+            $nextNum = $maxID + 1;
+        } else {
+            $nextNum = 1;
+        }
+        $data = str_pad($nextNum, 6, '0', STR_PAD_LEFT);
+
+        return view('courier.create',compact('country','data'));
     }
 
     /**
@@ -42,10 +53,20 @@ class ShipmentController extends Controller
     {
         //
         $data = $request->input();
-
         $country = Country::all();
 
+        //tracking 
+        $maxID = Courier::max('tracking');        
+        if (is_numeric($maxID)) {
+            $nextNum = $maxID + 1;
+        } else {
+            $nextNum = 1;
+        }      
+
+
         Courier::create([
+            'tracking' => str_pad($nextNum, 6, '0', STR_PAD_LEFT),
+            'reference' => $this->uniqueserial(),
             'shipper' => $data['shipper'],
             'shipper_email' => $data['semail'],
             'shipper_addrs' => $data['saddress'],
@@ -53,7 +74,7 @@ class ShipmentController extends Controller
             'origin_country_id' => $data['scountry'], 
             'origin_city_id' => $data['scity'], 
             'origin_zipcode' => $data['szipcode'],             
-            'origin_code' => $data[''], 
+            // 'origin_code' => $data[''], 
 
             'consignee' => $data['consignee'],
             'consignee_addrs' => $data['raddress'],
@@ -111,5 +132,23 @@ class ShipmentController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function uniqueserial(){
+        do {           
+
+            $pass = substr(str_shuffle("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, 12); 
+        } while (Courier::where("reference", "=", $pass)->first());
+  
+        return $pass;
+    }
+
+    public function PDFgenerate( $id)
+    {
+        $data = Courier::find($id);
+        // $data = ['title' => 'NiceSnippets Blog'];
+        $pdf = PDF::setPaper('A5','portrait')->loadView('courier.label', $data);
+  
+        return $pdf->stream('label.pdf');
     }
 }

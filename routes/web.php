@@ -30,6 +30,9 @@ Route::post('/employee/create', [App\Http\Controllers\EmployeeController::class,
 
 Route::get('/courier', [App\Http\Controllers\ShipmentController::class, 'index'])->name('courier.index');
 Route::get('/courier/create', [App\Http\Controllers\ShipmentController::class, 'create'])->name('courier.create');
+Route::get('/courier/label/{id}', [App\Http\Controllers\ShipmentController::class, 'PDFgenerate'])->name('courier.label');
+Route::post('/courier/create', [App\Http\Controllers\ShipmentController::class, 'store'])->name('courier.store');
+
 
 //status
 Route::get('/maintenance/status', [App\Http\Controllers\CourierStatusContorller::class, 'index'])->name('status.index');
