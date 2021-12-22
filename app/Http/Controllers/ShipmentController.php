@@ -147,8 +147,9 @@ class ShipmentController extends Controller
     {
         $data = Courier::find($id);
         // $data = ['title' => 'NiceSnippets Blog'];
-        $pdf = PDF::setPaper('A5','portrait')->loadView('courier.label', $data);
+        $pdf = PDF::setPaper('A6','portrait')->loadView('courier.label', $data);
   
         return $pdf->stream('label.pdf');
+        // return view('courier.label');
     }
 }
