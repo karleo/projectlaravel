@@ -56,7 +56,7 @@
                   <td>{{$row->tracking}}  </td>
                   <td>{{$row->tracking}}  </td>
                   <td><a href="{{ route('courier.label', $row->id)}}" class="fas fa-print" target="_blank" data-toggle="tooltip" data-placement="top" title="Print Label"></a>  
-                      <a href="{{ route('courier.label', $row->id)}}" class="fas fa-marker" target="_blank" data-toggle="tooltip" data-placement="top" title="Edit Status"></a> 
+                      <a href="{{route('label2')}}" class="fas fa-marker" target="_blank" data-toggle="tooltip" data-placement="top" title="Edit Status"></a> 
                   </td>
                 </tr> 
                 @endforeach

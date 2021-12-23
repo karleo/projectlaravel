@@ -152,4 +152,8 @@ class ShipmentController extends Controller
         return $pdf->stream('label.pdf');
         // return view('courier.label');
     }
+
+    public function label2(Request $request){
+        return view('courier.label2');
+    }
 }
