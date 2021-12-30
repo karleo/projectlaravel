@@ -390,5 +390,7 @@ $(function () {
   });
 </script>
 
+@yield('js_script')
+
 </body>
 </html>

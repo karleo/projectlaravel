@@ -291,3 +291,10 @@
  
 
 @endsection
+
+
+@section('js_script')
+
+
+    
+@endsection
