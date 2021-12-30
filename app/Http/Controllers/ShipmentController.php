@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Country;
 use App\Models\Courier;
 use PDF;
+use Iluminate\Support\Facades\Session;
 
 class ShipmentController extends Controller
 {
@@ -27,7 +28,7 @@ class ShipmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         //
         $country = Country::all();
@@ -38,7 +39,9 @@ class ShipmentController extends Controller
         } else {
             $nextNum = 1;
         }
-        $data = str_pad($nextNum, 6, '0', STR_PAD_LEFT);
+        $data = str_pad($nextNum, 6, '0', STR_PAD_LEFT);    
+
+      Session::put('name', 'wala lng po');
 
         return view('courier.create',compact('country','data'));
     }
