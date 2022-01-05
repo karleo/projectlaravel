@@ -63,3 +63,8 @@ Route::get('/customer/edit/{id}', [App\Http\Controllers\CustomerController::clas
 Route::put('/customer/update/{id}', [App\Http\Controllers\CustomerController::class, 'update'])->name('customer.update');
 // Route::get('/customer/delete/{id}', [App\Http\Controllers\CustomerController::class, 'destroy'])->name('customer.destroy');
 // Route::post('/customer/delete/{id}', [App\Http\Controllers\CustomerController::class, 'destroy'])->name('customer.destroy');
+
+
+
+
+Route::get('/sample',[App\Http\Controllers\SampleController::class, 'index'])->name('sample');

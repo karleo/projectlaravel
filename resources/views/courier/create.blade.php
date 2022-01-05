@@ -11,7 +11,7 @@
           <div class="row">
             <div class="col-sm-3">
               <label for="">Tracking</label>  
-              <input type="text" name="tracking" value="{{$data}}" readonly disabled> 
+              <input type="text" name="tracking" value="{{'PL' . $data}}" readonly disabled> 
             </div>
           </div>
         </div>
@@ -153,18 +153,13 @@
     <div class="card-footer">
       <button type="submit" class="btn btn-primary">Save</button>
     </div>
-  </form>
- 
-
+  </form> 
       </div> 
-      <!-- /.row --> 
-     
-
+      <!-- /.row -->  
     </div><!-- /.container-fluid -->
   </section>
 
-
-
+ 
 
 	<section class="content">
     <div class="container-fluid">
@@ -213,7 +208,7 @@
                 </tbody>
               </table>
             </div>
-                      </div>
+            </div>
                   </div>
          <div class="col-9">
           <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-xl">
