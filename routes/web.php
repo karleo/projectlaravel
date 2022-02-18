@@ -68,3 +68,4 @@ Route::put('/customer/update/{id}', [App\Http\Controllers\CustomerController::cl
 
 
 Route::get('/sample',[App\Http\Controllers\SampleController::class, 'index'])->name('sample');
+Route::get('/front',[App\Http\Controllers\SampleController::class, 'front'])->name('front');
