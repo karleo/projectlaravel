@@ -214,6 +214,7 @@
           <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-xl">
             Add boxes
           </button>
+          <input type="button" class="btn btn-lg btn-block" id="addrow" value="Add row">
         </div>
       </div>
        </div>
@@ -291,5 +292,17 @@
 @section('js_script')
 
 
+<script>
+
+  $(document).ready(function() {
+      var counter = 0;
+
+      $("#addrow").on("click", function() {
+          var newRow = $("<tr>"); 
+          var cols = "";
+          console.log("pull");
+      })
+  });
+</script>
     
 @endsection

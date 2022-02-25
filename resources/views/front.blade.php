@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
         <title>Website Template</title>
     </head>
     <body>
@@ -115,6 +116,55 @@
             </div>
          </section>
 
+         <!-- Contact & Map -->
+        <section class="p-5">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-md">
+                        <h2 class="text-center mb-4">Contact Info</h2>
+                        <ul class="list-group list-group-flush lead">
+                            <li class="list-group-item">
+                                <span class="fw-bold">Whatsapp:</span> +971557153812
+                            </li>
+                            <li class="list-group-item">
+                                <span class="fw-bold">Whatsapp:</span> +971557153812
+                            </li>
+                            <li class="list-group-item">
+                                <span class="fw-bold">Whatsapp:</span> +971557153812
+                            </li>
+                            <li class="list-group-item">
+                                <span class="fw-bold">Whatsapp:</span> +971557153812
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md">
+                        <div id='map' style='width: 400px; height: 300px;' ></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+         <!-- Footer -->
+         <footer class="p-5 bg-dark text-white text-center position-relative">
+            <div class="container">
+                <p class="lead">
+                    Copyright &copy; 2022 karleo
+                </p>
+            </div>
+         </footer>
+         
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+         <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+
+         <script>
+            mapboxgl.accessToken = 'pk.eyJ1Ijoia2FybGVvIiwiYSI6ImNrenRnb2c4YjBoMm0yd2w2ZTVkaHdzdDAifQ.Qtld5SDyRp1qqxCkV2YcPQ';
+            var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: [-71.060982, 42.35725],
+            zoom: 18,
+            });
+            </script>
     </body>
 </html>
