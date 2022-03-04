@@ -56,6 +56,7 @@ class CustomerController extends Controller
             'country_id' => $data['country'],
             'city_id' => $data['city'],
             'company_name' => $data['compnayname'],
+            'cust_type' =>  $data['cust_type'],
         ]);
 
         return redirect('customer')->with('success',"Added");

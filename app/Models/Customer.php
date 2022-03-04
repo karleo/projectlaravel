@@ -20,6 +20,7 @@ class Customer extends Model
         'country_id',
         'city_id',
         'company_name',
+        'cust_type',
     ];
     
     public function country(){

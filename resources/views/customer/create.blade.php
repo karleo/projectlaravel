@@ -98,9 +98,22 @@
                         <select class="form-control" name="city" id="city"> </select>
                         {{-- <input type="text" class="form-control" name="city" id="" placeholder="City"> --}}
                     </div> 
+                    
+                    <div class="form-group col-2">
+                      <label><strong>Customer Type :</strong></label><br>
+                      <select class="form-control" name="cust_type"> 
+                        <option value="1">Shipper</option>
+                        <option value="2">Consignee</option>
+                        <option value="3">Both</option>
+                      </select>                     
+                    </div>    
                 </div>
               </div>
               <!-- /.card-body -->
+
+
+
+
 
               <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Save</button>
