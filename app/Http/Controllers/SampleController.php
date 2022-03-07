@@ -20,4 +20,9 @@ class SampleController extends Controller
         return view('front');
 
     }
+
+    public function back(){
+        return view('back');
+
+    }
 }
