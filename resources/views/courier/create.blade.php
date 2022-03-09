@@ -173,7 +173,7 @@
         <div class="card-body">
           <div class="row">
             <!-- /.card-header -->
-            <div class="card-body p-0 col-md-12" >
+            <div id="item-x" class="card-body p-0 col-md-12" >
               <table class="table table-sm">
                 <thead>
                   <tr>
@@ -187,122 +187,197 @@
                     <th class='text-center'>Action</th>										 
                   </tr>
                 </thead>
-                <tbody class='items'>
-                {{-- @foreach($d_courier as $data) --}}
+                <tbody class='items'> 
                 <tr>
-                  {{-- <td class='text-center'style="width: 30%;">{{$data->detail_description}}</td>
-                  <td class='text-center'>{{$data->detail_qnty}}</td>
-                  <td class='text-center'>{{ $data->detail_weight }} </td>
-                  <td class='text-center'>{{ $data->detail_length }}  </td>
-                  <td class='text-center'>{{$data->detail_width}}</td>
-                  <td class='text-center'>{{$data->detail_height}}</td>
-                  <td style="width: 10%;" class='text-center'>{{$data->detail_vol}}</td>
-                  <td class='text-center' > 
-              
-                    <a href="{{route('shipment.editd',$data->id)}}" class="btn btn-sm btn-info" data-toggle="modal" data-target="#emodal-xl">Edit</a>
-                
-                    <a href="{{route('shipment.delete',$data->id)}}" class="btn btn-sm btn-danger">Delete</a>  
-                   </td> --}}
-                </tr>
-                {{-- @endforeach --}}
+                  <td><input type="text" class="form-control" name="descrip[]"
+                    placeholder="Description"
+                    id='descr-0'>
+                  </td>
+                  <td><input type="text" class="form-control req amnt" name="qty[]"
+                    id="qty-0"   onkeypress="return isNumber(event)"
+                    onkeyup="rowTotal('0')" 
+                    {{-- onkeypress="return isNumber(event)"
+                    onkeyup="rowTotal('0'), billUpyog()" --}}
+                    autocomplete="off" value="1"><input type="hidden" id="alert-0"
+                                                        value=""
+                                                        name="alert[]"></td>
+                  <td><input type="text" class="form-control req amnt" name="weight[]"
+                    id="wt-0"    onkeypress="return isNumber(event)" onkeyup="rowTotal('0')"
+                    autocomplete="off" value="1"><input type="hidden" id="alert-0"
+                                                        value=""
+                                                        name="alert[]"></td>
+                  <td><input type="text" class="form-control req amnt" name="length[]"
+                    id="length-0"   onkeypress="return isNumber(event)"  onkeyup="rowTotal('0')"
+                    autocomplete="off" value="1"><input type="hidden" id="alert-0"
+                                                        value=""
+                                                        name="alert[]"></td>
+                  <td><input type="text" class="form-control req amnt" name="width[]"
+                    id="width-0"  onkeypress="return isNumber(event)"   onkeyup="rowTotal('0')"
+                    autocomplete="off" value="1"><input type="hidden" id="alert-0"
+                                                        value=""
+                                                        name="alert[]"></td>
+                  <td><input type="text" class="form-control req amnt" name="height[]"
+                    id="height-0"   onkeypress="return isNumber(event)"  onkeyup="rowTotal('0')"
+                    autocomplete="off" value="1"><input type="hidden" id="alert-0"
+                                                        value=""
+                                                        name="alert[]"></td>   
+                  <td>
+                    <span class='ttlText' id="result-0">0</span>
+                  </td>
+                  <td class="text-center">
+
+                  </td>
+                </tr> 
+            
+             
+                <tr class="last-item-row ">
+                  <td class="add-row">
+                      <button type="button" class="btn btn-primary" aria-label="Left Align"
+                              id="addbox">
+                          <i class="fa fa-plus-square"></i> Add boxes
+                      </button>
+                  </td>
+                  <td colspan="7"></td>
+              </tr>
+
                 </tbody>
               </table>
             </div>
             </div>
-                  </div>
-         <div class="col-9">
-          <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-xl">
-            Add boxes
-          </button>
-          <input type="button" class="btn btn-lg btn-block" id="addrow" value="Add row">
-        </div>
+         </div>
+          
       </div>
        </div>
     </div>
    </div>
 </section>
-
-
-
-
-
- 	<!-- /.modal-content -->
-	 <div class="modal fade" id="modal-xl">
-		<div class="col-md-12">
-			<div class="modal-dialog modal-xl">
-			<div class="modal-content">
-				<div class="modal-header">
-				<h4 class="modal-title">Details</h4>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<form action=" " method="POST" role="modal">
-					@csrf
-				<div class="card-body">
-					<div class="row">
-						<div class="modal-body">
-						</div>
-					</div>
-					<div class="row">
-					<div class="form-group col-8">
-							<label for="exampleInputPassword1">Item Description</label>
-							<textarea type="text" class="form-control" name="detail_description" id="exampleInputPassword1" placeholder="Item Description "></textarea>
-						</div>
-						<div class="form-group col-4">
-							<label for="exampleInputPassword1">Quantity</label>
-							<input type="number" class="form-control" name="detail_qnty" id="exampleInputPassword1" placeholder="Quantity">
-						</div>
-					</div>
-					<div class="row">
-						<div class="form-group col-sm-12 col-md-3">
-								<label for="exampleInputPassword1">Weight (kg)</label>
-								<input type="text" class="form-control" name="detail_weight" id="exampleInputPassword1" placeholder="weigth"></textarea>
-							</div>
-							<div class="form-group col-sm-12 col-md-9">
-								<label for="exampleInputPassword1">Dimension (cm)</label>
-								<div class="input-group">
-								<input type="number" class="form-control" name="detail_length" id="exampleInputPassword1" placeholder="length">
-								<div class="cross strong text__color-gray-darker text__size-smaller">&nbsp; x &nbsp;</div>
-								<input type="number" class="form-control" name="detail_width" id="exampleInputPassword1" placeholder="width">
-								<div class="cross strong text__color-gray-darker text__size-smaller">&nbsp; x &nbsp;</div>
-								<input type="number" class="form-control" name="detail_height" id="exampleInputPassword1" placeholder="height">
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="modal-footer justify-content-between">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					<button type="submit" class="btn btn-primary">Add boxes</button>
-				</div>
-			</div>
-			</form>
-			</div>
-			<!-- /.modal-content -->
-			</div>
-			<!-- /.modal-dialog -->
-		</div>
-		<!-- /.modal -->
-
  
 
-@endsection
-
+@endsection 
 
 @section('js_script')
-
-
+ 
 <script>
 
-  $(document).ready(function() {
-      var counter = 0;
+  
+ 
 
-      $("#addrow").on("click", function() {
-          var newRow = $("<tr>"); 
-          var cols = "";
-          console.log("pull");
-      })
-  });
+  $('#addbox').on('click', function () {
+    var cvalue = parseInt($('#oros').val()) + 1;
+    var nxt = parseInt(cvalue);
+    $('#oros').val(nxt);
+    
+    var functionNum = "'" + cvalue + "'";
+    count = $('#item-x div').length;
+    //product row
+    var data = '<tr><td><input type="text" class="form-control" name="descrip[]" placeholder="Enter Descriptions" id="descr-' + cvalue + '"> </td><td><input type="text" class="form-control req amnt" name="qty[]" onkeyup="rowTotal(' + functionNum + ')" id="qty-' + cvalue + ' autocomplete="off" value="1" > <td><input type="text" class="form-control req amnt" name="weight[]"   onkeyup="rowTotal(' + functionNum + ')" id="weight-' + cvalue + ' autocomplete="off" value="1" ><td class="text-center"><button type="button" data-rowid="' + cvalue + '" class="btn btn-danger removeProd" title="Remove" > <i class="fa fa-minus-square"></i> </button> </td>    </td></tr>';
+
+    //ajax request
+    
+    $('tr.last-item-row').before(data);
+
+    row = cvalue;
+
+    $('#productname-' + cvalue).autocomplete({
+        source: function (request, response) {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: baseurl + 'products/search/' + billtype,
+                dataType: "json",
+                method: 'post',
+                data: 'keyword=' + request.term + '&type=product_list&row_num=' + row + '&wid=' + $("#s_warehouses option:selected").val() + '&serial_mode=' + $("#serial_mode:checked").val(),
+                success: function (data) {
+                    response($.map(data, function (item) {
+                        return {
+                            label: item.name,
+                            value: item.name,
+                            data: item
+                        };
+                    }));
+                }
+            });
+        },
+        autoFocus: true,
+        minLength: 0,
+        select: function (event, ui) {
+            id_arr = $(this).attr('id');
+            id = id_arr.split("-");
+            var t_r = ui.item.data.taxrate;
+            var custom = accounting.unformat($("#taxFormat option:selected").val(), accounting.settings.number.decimal);
+            if (custom > 0) {
+                t_r = custom;
+            }
+            var discount = ui.item.data.disrate;
+            var dup;
+            var custom_discount = $('#custom_discount').val();
+            if (custom_discount > 0) discount = deciFormat(custom_discount);
+            $('.pdIn').each(function () {
+                if ($(this).val() == ui.item.data.id) dup = true;
+            });
+            if (dup) {
+                alert('Already Exists!!');
+                return;
+            }
+            $('#amount-' + id[1]).val(1);
+            $('#price-' + id[1]).val(accounting.formatNumber(ui.item.data.price));
+            $('#pid-' + id[1]).val(ui.item.data.id);
+            $('#vat-' + id[1]).val(accounting.formatNumber(t_r));
+            $('#discount-' + id[1]).val(accounting.formatNumber(discount));
+            $('#dpid-' + id[1]).val(ui.item.data.product_des);
+            $('#unit-' + id[1]).val(ui.item.data.unit).attr('attr-org', ui.item.data.unit);
+            $('#hsn-' + id[1]).val(ui.item.data.code);
+            $('#alert-' + id[1]).val(ui.item.data.alert);
+            $('#serial-' + id[1]).val(ui.item.data.serial);
+
+            rowTotal(cvalue);
+            billUpyog();
+            if (typeof unit_load === "function") {
+                unit_load();
+                $('.unit').show();
+            }
+        },
+        create: function (e) {
+            $(this).prev('.ui-helper-hidden-accessible').remove();
+        }
+    });
+
+});
+
+
+
+
+$('#item-x').on('click', '.removeProd', function () {
+
+var pidd = $(this).closest('tr').find('.pdIn').val();
+var retain = $(this).closest('tr').attr('data-re');
+
+var pqty = $(this).closest('tr').find('.amnt').val();
+pqty = pidd + '-' + pqty;
+if (retain) {
+    $('<input>').attr({
+        type: 'hidden',
+        id: 'restock',
+        name: 'restock[]',
+        value: pqty
+    }).appendTo('form');
+}
+$(this).closest('tr').remove();
+$('#d' + $(this).closest('tr').find('.pdIn').attr('id')).closest('tr').remove();
+$('.amnt').each(function (index) {
+    rowTotal(index);
+   // billUpyog();
+});
+
+
+return false;
+});
+
+
+
 </script>
     
 @endsection
