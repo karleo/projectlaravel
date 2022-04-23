@@ -33,6 +33,10 @@ class Courier extends Model
         'total_vol_weight',
         'total_charge_weight',
         'custom_value', 
+        'date_ship',
+        'pack_type',
+        'ship_mode',
+        'ship_status',
 
     ];
 

@@ -92,6 +92,17 @@ class ShipmentController extends Controller
             'dest_city_id' => $data['rcity'], 
             'dest_zipcode' => $data['rzipcode'],       
 
+            // Shipment info
+            'date_ship' => $data['date_ship'],
+            'pack_type' => $data['pack_type'],
+            'ship_mode' => $data['ship_mode'],
+            'ship_status' => $data['ship_status'], 
+            'custom_value'=>  $data['c_value'],
+
+
+
+
+
         ]);
 
         return redirect('courier'); 

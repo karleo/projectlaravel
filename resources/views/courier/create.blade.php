@@ -173,7 +173,7 @@
         </div> 
         <div class="form-group col-3">
           <label for="">Shipping Mode</label>
-          <select class="form-control" name="pack_type" id="" >
+          <select class="form-control" name="ship_mode" id="" >
             <option selected="" disabled="">Select Ship mode</option> 
             @foreach ($shipmode as $item)
               <option value="{{$item->id}}">{{$item->name}}</option>                          
@@ -183,7 +183,7 @@
         </div> 
         <div class="form-group col-3">
           <label for="">Shipment Status</label>
-          <select class="form-control" name="pack_type" id="" >
+          <select class="form-control" name="ship_status" id="" >
             <option selected="" disabled="">Select Status</option> 
             @foreach ($status as $item)
               <option value="{{$item->id}}">{{$item->name}}</option>                          
@@ -210,9 +210,8 @@
   </div>
 </div>
 
-
-    <div class="card-footer">
-      <button type="submit" class="btn btn-primary">Save</button>
+    <div class="container-fluid">
+      <button type="submit" class="btn btn-primary">Generate</button>
     </div>
   </form> 
       </div> 

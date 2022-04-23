@@ -15,7 +15,6 @@ class PackageTypeTableSeeder extends Seeder
     public function run()
     {
         //
-
         PackageType::insert([
             'name' => 'Pallets',           
             'details' => 'Corrugated boxes simply refer to what is commonly known as: Card',
