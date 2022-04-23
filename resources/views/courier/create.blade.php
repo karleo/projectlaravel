@@ -148,6 +148,67 @@
           </div> 
         </div> 
     <!-- End Consignee -->        
+<!-- Shipment Details -->
+<div class="col-md-12">
+  <!-- general form elements -->
+  <div class="card card-primary">
+    <div class="card-header">
+      <h3 class="card-title">Shipment Detail</h3>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="form-group col-2">
+            <label for="">Date Shipping</label>
+            <input type="date" class="form-control" name="date_ship" id="" placeholder="Shipping Date"> 
+        </div> 
+        <div class="form-group col-3">
+          <label for="">Packaging Type</label>
+            <select class="form-control" name="pack_type" id="" >
+              <option selected="" disabled="">Select Package Type</option> 
+              @foreach ($package as $item)
+                <option value="{{$item->id}}">{{$item->name}}</option>                          
+              @endforeach
+            </select>
+          {{-- <input type="text" class="form-control" name="pack_type" id="" placeholder="Packaging Type">  --}}
+        </div> 
+        <div class="form-group col-3">
+          <label for="">Shipping Mode</label>
+          <select class="form-control" name="pack_type" id="" >
+            <option selected="" disabled="">Select Ship mode</option> 
+            @foreach ($shipmode as $item)
+              <option value="{{$item->id}}">{{$item->name}}</option>                          
+            @endforeach
+          </select>
+          {{-- <input type="text" class="form-control" name="ship_mode" id="" placeholder="Shipping Mode">  --}}
+        </div> 
+        <div class="form-group col-3">
+          <label for="">Shipment Status</label>
+          <select class="form-control" name="pack_type" id="" >
+            <option selected="" disabled="">Select Status</option> 
+            @foreach ($status as $item)
+              <option value="{{$item->id}}">{{$item->name}}</option>                          
+            @endforeach
+          </select>
+          {{-- <input type="text" class="form-control" name="ship_status" id="" placeholder="Shipment Status">  --}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-3">
+          <label for="">Courier Company</label>
+          <input type="text" class="form-control" name="courier" id="" placeholder="Courier Company"> 
+        </div>
+        <div class="form-group col-3">
+          <label for="">Payment Mode</label>
+          <input type="text" class="form-control" name="pay_mode" id="" placeholder="Payment Mode"> 
+        </div>
+        <div class="form-group col-3">
+          <label for="">Custom Value</label>
+          <input type="text" class="form-control" name="c_value" id="" placeholder="Custom Value"> 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
     <div class="card-footer">
@@ -158,7 +219,6 @@
       <!-- /.row -->  
     </div><!-- /.container-fluid -->
   </section>
-
  
 
 	<section class="content">
@@ -270,19 +330,18 @@
     var functionNum = "'" + cvalue + "'";
     count = $('#item-x div').length;
     //product row
-    var data = '<tr><td><input type="text" class="form-control" name="descrip[]" placeholder="Enter Descriptions" id="descr-' + cvalue + '"> </td><td><input type="text" class="form-control req amnt" name="qty[]" onkeyup="rowTotal(' + functionNum + ')" id="qty-' + cvalue + ' autocomplete="off" value="1" > <td><input type="text" class="form-control req amnt" name="weight[]"   onkeyup="rowTotal(' + functionNum + ')" id="weight-' + cvalue + ' autocomplete="off" value="1" ><td class="text-center"><button type="button" data-rowid="' + cvalue + '" class="btn btn-danger removeProd" title="Remove" > <i class="fa fa-minus-square"></i> </button> </td>    </td></tr>';
+    var data = '<tr><td><input type="text" class="form-control" name="descrip[]" placeholder="Enter Descriptions" id="descr-' + cvalue + '"> </td><td><input type="text" class="form-control req amnt" name="qty[]" onkeyup="rowTotal(' + functionNum + ')" id="qty-' + cvalue + ' autocomplete="off" value="0" > <td><input type="text" class="form-control req amnt" name="weight[]"   onkeyup="rowTotal(' + functionNum + ')" id="weight-' + cvalue + ' autocomplete="off" value="1"><td><input type="text" class="form-control req amnt" name="length[]"   onkeyup="rowTotal(' + functionNum + ')" id="length-' + cvalue + ' autocomplete="off" value="1"> <td class="text-center"><button type="button" data-rowid="' + cvalue + '" class="btn btn-danger removeProd" title="Remove" > <i class="fa fa-minus-square"></i> </button> </td>    </td></tr>';
 
     //ajax request
     
     $('tr.last-item-row').before(data);
-
     row = cvalue;
 
     $('#productname-' + cvalue).autocomplete({
         source: function (request, response) {
             $.ajaxSetup({
                 headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')  
                 }
             });
             $.ajax({
@@ -376,7 +435,19 @@ $('.amnt').each(function (index) {
 return false;
 });
 
+var rowTotal = function (numb) {
+    //most res
+    var result;
+    var length = $("length-" + numb).val();
+    var width = $("width-" + numb).val();
+    var height = $("height-" + numb).val();
 
+    result = length * width * height / 5000;
+
+  console.log('a');
+
+  // $("#result-" + numb).html(accounting.formatNumber(totalValue));
+}
 
 </script>
     

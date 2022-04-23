@@ -229,6 +229,18 @@
                   <p>City</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="{{route('package.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Package Type</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('shipmode.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Shipping Mode</p>
+                </a>
+              </li>
             </ul>
           </li> 
           

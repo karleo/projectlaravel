@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Country;
 use App\Models\Courier;
+use App\Models\PackageType;
+use App\Models\ShippingMode;
+use App\Models\CourierStatus;
 use PDF;
 
 class ShipmentController extends Controller
@@ -31,7 +34,9 @@ class ShipmentController extends Controller
     {
         //
         $country = Country::all();
-
+        $package = PackageType::all();
+        $shipmode = ShippingMode::all();
+        $status = CourierStatus::all();
         $maxID = Courier::max('tracking');        
         if (is_numeric($maxID)) {
             $nextNum = $maxID + 1;
@@ -43,7 +48,7 @@ class ShipmentController extends Controller
         // $value = $request->session()->get('key','wasak');
         // dd($value);
 
-        return view('courier.create',compact('country','data'));
+        return view('courier.create',compact('country','data','package','shipmode','status'));
     }
 
     /**

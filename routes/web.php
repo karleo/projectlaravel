@@ -55,6 +55,21 @@ Route::get('/maintenance/city/create', [App\Http\Controllers\CityController::cla
 Route::post('/maintenance/city/create', [App\Http\Controllers\CityController::class, 'store'])->name('city.store');
 Route::post('/get_city', [App\Http\Controllers\CityController::class, 'get_city'])->name('city.get_city');
 
+//package 
+Route::get('/maintenance/package', [App\Http\Controllers\PackageTypeController::class, 'index'])->name('package.index');
+Route::get('/maintenance/package/create', [App\Http\Controllers\PackageTypeController::class, 'create'])->name('package.create');
+Route::post('/maintenance/package/create', [App\Http\Controllers\PackageTypeController::class, 'store'])->name('package.store');
+Route::get('/maintenance/package/edit/{id}', [App\Http\Controllers\PackageTypeController::class, 'edit'])->name('package.edit');
+Route::put('/maintenance/package/update/{id}', [App\Http\Controllers\PackageTypeController::class, 'update'])->name('package.update');
+
+//ship mode 
+Route::get('/maintenance/shipmode', [App\Http\Controllers\ShippingModeController::class, 'index'])->name('shipmode.index');
+Route::get('/maintenance/shipmode/create', [App\Http\Controllers\ShippingModeController::class, 'create'])->name('shipmode.create');
+Route::post('/maintenance/shipmode/create', [App\Http\Controllers\ShippingModeController::class, 'store'])->name('shipmode.store');
+Route::get('/maintenance/shipmode/edit/{id}', [App\Http\Controllers\ShippingModeController::class, 'edit'])->name('shipmode.edit');
+Route::put('/maintenance/shipmode/update/{id}', [App\Http\Controllers\ShippingModeController::class, 'update'])->name('shipmode.update');
+
+
 //customer
 Route::get('/customer', [App\Http\Controllers\CustomerController::class, 'index'])->name('customer.index');
 Route::get('/customer/create', [App\Http\Controllers\CustomerController::class, 'create'])->name('customer.create');
@@ -70,3 +85,6 @@ Route::put('/customer/update/{id}', [App\Http\Controllers\CustomerController::cl
 Route::get('/sample',[App\Http\Controllers\SampleController::class, 'index'])->name('sample');
 Route::get('/front',[App\Http\Controllers\SampleController::class, 'front'])->name('front');
 Route::get('/back',[App\Http\Controllers\SampleController::class, 'back'])->name('back');
+
+
+Route::get('/zkteco',[App\Http\Controllers\ZKController::class, 'index'])->name('zkteco');
