@@ -55,23 +55,29 @@
                 <div class="row">
                     <div class="form-group col-6">
                         <label for="">Shipment From</label>
-                        <input type="text" class="form-control" name="shipper" id="" placeholder="Shipper Name"> 
+                        <select class="form-control " name="customer" id="customer">
+                          <option selected="" disabled="">Select Customer</option> 
+                          @foreach ($customer as $item)                              
+                            <option value={{$item->id}}> {{$item->customer_name}}</option>
+                          @endforeach
+                        </select>
+                        {{-- <input type="text" class="form-control" name="shipper" id="customer" placeholder="Shipper Name">  --}}
                     </div>
                     <div class="form-group col-6">
                       <label for="">Email Adress</label>
-                      <input type="text" class="form-control" name="semail" id="" placeholder="Email Address"> 
+                      <input type="text" class="form-control" name="semail" id="email" placeholder="Email Address"> 
                     </div>  
                     <div class="form-group col-12">
                         <label for="">Address</label>
-                        <input type="text" class="form-control" name="saddress" id="" placeholder="Address">
+                        <input type="text" class="form-control" name="saddress" id="address" placeholder="Address">
                     </div>
                     <div class="form-group col-4">
                         <label for="">Contact Number</label>
-                        <input type="text" class="form-control" name="snumber" id="" placeholder="Contact Number"> 
+                        <input type="text" class="form-control" name="snumber" id="contact" placeholder="Contact Number"> 
                     </div> 
                     <div class="form-group col-3"  >
                       <label for="">Zip Code</label>
-                      <input type="text" class="form-control" name="szipcode" id="" placeholder="Zip Code"> 
+                      <input type="text" class="form-control" name="szipcode" id="zipcode" placeholder="Zip Code"> 
                     </div>
                     <div class="form-group col-3" style="display:none">
                       <label for="">Contact Number</label>

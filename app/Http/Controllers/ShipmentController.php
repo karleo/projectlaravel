@@ -42,6 +42,7 @@ class ShipmentController extends Controller
         $status = CourierStatus::all();
         $company = CourierCompany::all();
         $payment_mode = PaymentMode::all();
+        $customer = Customer::all();
         $maxID = Courier::max('tracking');        
         if (is_numeric($maxID)) {
             $nextNum = $maxID + 1;
@@ -53,7 +54,7 @@ class ShipmentController extends Controller
         // $value = $request->session()->get('key','wasak');
         // dd($value);
 
-        return view('courier.create',compact('country','data','package','shipmode','status','company','payment_mode'));
+        return view('courier.create',compact('country','data','package','shipmode','status','company','payment_mode', 'customer'));
     }
 
     /**
@@ -184,7 +185,7 @@ class ShipmentController extends Controller
     public function dcustomer(Request $request){
 
         $id = $request->input('id');
-        $dcustomer = Customer::where('id',1)->get();
+        $dcustomer = Customer::where('id',$id)->get();
                
         return response()->json($dcustomer);
 

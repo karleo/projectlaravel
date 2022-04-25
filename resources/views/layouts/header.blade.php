@@ -362,8 +362,8 @@ $(function () {
 
 <script type="text/javascript">
 $(document).ready(function(){
-    // $('#customer').change(function(){
-      var id = $(this).val();
+     $('#customer').change(function(){
+      var id = $(this).val(); 
       var _token = $('input[name="_token"]').val();   
       $.ajax({
         url: "{{ route('customer.details') }}",
@@ -371,11 +371,16 @@ $(document).ready(function(){
         dataType: 'JSON',
         data:{id:id, _token:_token},      
         success:function(data){ 
-          console.log(data);
-           console.log(data[0]["address"]); 
+          $('#address').val(data[0].address);
+          $('#email').val(data[0].email);
+          $('#contact').val(data[0].contact);
+          $('#zipcode').val(data[0].zipcode);
+          
+
+         console.log(data); 
         }
       })
-    // });
+     });
   });   
 </script>
 
