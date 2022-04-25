@@ -55,7 +55,7 @@
                 <div class="row">
                     <div class="form-group col-6">
                         <label for="">Shipment From</label>
-                        <select class="form-control " name="customer" id="customer">
+                        <select class="form-control select2bs4" name="customer" id="customer">
                           <option selected="" disabled="">Select Customer</option> 
                           @foreach ($customer as $item)                              
                             <option value={{$item->id}}> {{$item->customer_name}}</option>
@@ -169,7 +169,7 @@
         </div> 
         <div class="form-group col-3">
           <label for="">Packaging Type</label>
-            <select class="form-control" name="pack_type" id="" >
+            <select class="form-control select2bs4" name="pack_type" id="" >
               <option selected="" disabled="">Select Package Type</option> 
               @foreach ($package as $item)
                 <option value="{{$item->id}}">{{$item->name}}</option>                          
@@ -179,7 +179,7 @@
         </div> 
         <div class="form-group col-3">
           <label for="">Shipping Mode</label>
-          <select class="form-control" name="ship_mode" id="" >
+          <select class="form-control select2bs4" name="ship_mode" id="" >
             <option selected="" disabled="">Select Ship mode</option> 
             @foreach ($shipmode as $item)
               <option value="{{$item->id}}">{{$item->name}}</option>                          
@@ -188,8 +188,8 @@
           {{-- <input type="text" class="form-control" name="ship_mode" id="" placeholder="Shipping Mode">  --}}
         </div> 
         <div class="form-group col-3">
-          <label for="">Shipment Status</label>
-          <select class="form-control" name="ship_status" id="" >
+          <label for="">Shipment Status</label> 
+          <select class="form-control select2bs4" name="ship_status" id="" >
             <option selected="" disabled="">Select Status</option> 
             @foreach ($status as $item)
               <option value="{{$item->id}}">{{$item->name}}</option>                          
@@ -201,7 +201,7 @@
       <div class="row">
         <div class="form-group col-3">
           <label for="">Courier Company</label>
-          <select class="form-control" name="courier" id="" >
+          <select class="form-control select2bs4" name="courier" id="" >
             <option selected="" disabled="">Select Status</option> 
             @foreach ($company as $item)
               <option value="{{$item->id}}">{{$item->name_com}}</option>                          
@@ -211,7 +211,7 @@
         </div>
         <div class="form-group col-3">
           <label for="">Payment Mode</label>
-          <select class="form-control" name="pay_mode" id="" >
+          <select class="form-control select2bs4" name="pay_mode" id="" >
             <option selected="" disabled="">Select Status</option> 
             @foreach ($payment_mode as $item)
               <option value="{{$item->id}}">{{$item->pay_name}}</option>                          
