@@ -241,6 +241,12 @@
                   <p>Shipping Mode</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="{{route('ccompany.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Courier Company</p>
+                </a>
+              </li>
             </ul>
           </li> 
           
@@ -354,8 +360,26 @@ $(function () {
 </script>
 
 
+<script type="text/javascript">
+$(document).ready(function(){
+    // $('#customer').change(function(){
+      var id = $(this).val();
+      var _token = $('input[name="_token"]').val();   
+      $.ajax({
+        url: "{{ route('customer.details') }}",
+        method: 'GET',
+        dataType: 'JSON',
+        data:{id:id, _token:_token},      
+        success:function(data){ 
+          console.log(data);
+           console.log(data[0]["address"]); 
+        }
+      })
+    // });
+  });   
+</script>
 
-
+<!-- -->
 <script type="text/javascript">
   $(document).ready(function(){
     $('#ocountry').change(function(){

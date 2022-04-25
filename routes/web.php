@@ -33,7 +33,7 @@ Route::get('/courier/create', [App\Http\Controllers\ShipmentController::class, '
 Route::get('/courier/label/{id}', [App\Http\Controllers\ShipmentController::class, 'PDFgenerate'])->name('courier.label');
 Route::get('/courier/label2', [App\Http\Controllers\ShipmentController::class, 'label2'])->name('label2');
 Route::post('/courier/create', [App\Http\Controllers\ShipmentController::class, 'store'])->name('courier.store');
-
+Route::get('/dcustomer', [App\Http\Controllers\ShipmentController::class, 'dcustomer'])->name('customer.details');
 
 //status
 Route::get('/maintenance/status', [App\Http\Controllers\CourierStatusContorller::class, 'index'])->name('status.index');
@@ -68,6 +68,20 @@ Route::get('/maintenance/shipmode/create', [App\Http\Controllers\ShippingModeCon
 Route::post('/maintenance/shipmode/create', [App\Http\Controllers\ShippingModeController::class, 'store'])->name('shipmode.store');
 Route::get('/maintenance/shipmode/edit/{id}', [App\Http\Controllers\ShippingModeController::class, 'edit'])->name('shipmode.edit');
 Route::put('/maintenance/shipmode/update/{id}', [App\Http\Controllers\ShippingModeController::class, 'update'])->name('shipmode.update');
+
+//courier company
+Route::get('/maintenance/company', [App\Http\Controllers\CourierCompanyController::class, 'index'])->name('ccompany.index');
+Route::get('/maintenance/company/create', [App\Http\Controllers\CourierCompanyController::class, 'create'])->name('ccompany.create');
+Route::post('/maintenance/company/create', [App\Http\Controllers\CourierCompanyController::class, 'store'])->name('ccompany.store');
+Route::get('/maintenance/company/edit/{id}', [App\Http\Controllers\CourierCompanyController::class, 'edit'])->name('ccompany.edit');
+Route::put('/maintenance/company/update/{id}', [App\Http\Controllers\CourierCompanyController::class, 'update'])->name('ccompany.update');
+
+//payment method
+Route::get('/maintenance/payment', [App\Http\Controllers\PaymentModeController::class, 'index'])->name('payment.index');
+Route::get('/maintenance/payment/create', [App\Http\Controllers\PaymentModeController::class, 'create'])->name('payment.create');
+Route::post('/maintenance/payment/create', [App\Http\Controllers\PaymentModeController::class, 'store'])->name('payment.store');
+Route::get('/maintenance/payment/edit/{id}', [App\Http\Controllers\PaymentModeController::class, 'edit'])->name('payment.edit');
+Route::put('/maintenance/payment/update/{id}', [App\Http\Controllers\PaymentModeController::class, 'update'])->name('payment.update');
 
 
 //customer

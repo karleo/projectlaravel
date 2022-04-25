@@ -195,11 +195,23 @@
       <div class="row">
         <div class="form-group col-3">
           <label for="">Courier Company</label>
-          <input type="text" class="form-control" name="courier" id="" placeholder="Courier Company"> 
+          <select class="form-control" name="courier" id="" >
+            <option selected="" disabled="">Select Status</option> 
+            @foreach ($company as $item)
+              <option value="{{$item->id}}">{{$item->name_com}}</option>                          
+            @endforeach
+          </select>
+          {{-- <input type="text" class="form-control" name="courier" id="" placeholder="Courier Company">  --}}
         </div>
         <div class="form-group col-3">
           <label for="">Payment Mode</label>
-          <input type="text" class="form-control" name="pay_mode" id="" placeholder="Payment Mode"> 
+          <select class="form-control" name="pay_mode" id="" >
+            <option selected="" disabled="">Select Status</option> 
+            @foreach ($payment_mode as $item)
+              <option value="{{$item->id}}">{{$item->pay_name}}</option>                          
+            @endforeach
+          </select>
+          {{-- <input type="text" class="form-control" name="pay_mode" id="" placeholder="Payment Mode">  --}}
         </div>
         <div class="form-group col-3">
           <label for="">Custom Value</label>

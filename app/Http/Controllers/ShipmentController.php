@@ -8,6 +8,9 @@ use App\Models\Courier;
 use App\Models\PackageType;
 use App\Models\ShippingMode;
 use App\Models\CourierStatus;
+use App\Models\CourierCompany;
+use App\Models\PaymentMode;
+use App\Models\Customer;
 use PDF;
 
 class ShipmentController extends Controller
@@ -37,6 +40,8 @@ class ShipmentController extends Controller
         $package = PackageType::all();
         $shipmode = ShippingMode::all();
         $status = CourierStatus::all();
+        $company = CourierCompany::all();
+        $payment_mode = PaymentMode::all();
         $maxID = Courier::max('tracking');        
         if (is_numeric($maxID)) {
             $nextNum = $maxID + 1;
@@ -48,7 +53,7 @@ class ShipmentController extends Controller
         // $value = $request->session()->get('key','wasak');
         // dd($value);
 
-        return view('courier.create',compact('country','data','package','shipmode','status'));
+        return view('courier.create',compact('country','data','package','shipmode','status','company','payment_mode'));
     }
 
     /**
@@ -174,5 +179,14 @@ class ShipmentController extends Controller
 
     public function label2(Request $request){
         return view('courier.label2');
+    }
+
+    public function dcustomer(Request $request){
+
+        $id = $request->input('id');
+        $dcustomer = Customer::where('id',1)->get();
+               
+        return response()->json($dcustomer);
+
     }
 }
