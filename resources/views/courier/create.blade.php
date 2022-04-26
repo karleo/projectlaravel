@@ -54,13 +54,19 @@
               <div class="card-body">
                 <div class="row">
                     <div class="form-group col-6">
-                        <label for="">Shipment From</label>
-                        <select class="form-control select2bs4" name="customer" id="customer">
+                        <label for="">Shipment From</label>                      
+                        <select class="form-control select2bs4" name="shipper" id="customer">
                           <option selected="" disabled="">Select Customer</option> 
                           @foreach ($customer as $item)                              
                             <option value={{$item->id}}> {{$item->customer_name}}</option>
                           @endforeach
                         </select>
+                        @if ($errors->has('shipper'))
+                        <div class="error alert-danger ">
+                          The shipper name field is required.  
+                          {{-- {{ $errors->first('fname') }}  --}}
+                        </div>
+                        @endif
                         {{-- <input type="text" class="form-control" name="shipper" id="customer" placeholder="Shipper Name">  --}}
                     </div>
                     <div class="form-group col-6">
@@ -70,10 +76,22 @@
                     <div class="form-group col-12">
                         <label for="">Address</label>
                         <input type="text" class="form-control" name="saddress" id="address" placeholder="Address">
+                        @if ($errors->has('saddress'))
+                        <div class="error alert-danger ">
+                          The address name field is required.  
+                          {{-- {{ $errors->first('fname') }}  --}}
+                        </div>
+                        @endif
                     </div>
                     <div class="form-group col-4">
                         <label for="">Contact Number</label>
                         <input type="text" class="form-control" name="snumber" id="contact" placeholder="Contact Number"> 
+                        @if ($errors->has('snumber'))
+                        <div class="error alert-danger ">
+                          The contact field is required.  
+                          {{-- {{ $errors->first('fname') }}  --}}
+                        </div>
+                        @endif
                     </div> 
                     <div class="form-group col-3"  >
                       <label for="">Zip Code</label>
@@ -91,11 +109,25 @@
                           <option value={{$item->id}}> {{$item->name}}</option>
                         @endforeach
                       </select>
+                      @if ($errors->has('scountry'))
+                      <div class="error alert-danger ">
+                        The country field is required.  
+                        {{-- {{ $errors->first('fname') }}  --}}
+                      </div>
+                      @endif
                         {{-- <input type="text" class="form-control" name="scountry" id="" placeholder="Country"> --}}
                     </div>
                       <div class="form-group col-4">
                           <label for="">City</label>
-                          <select class="form-control " name="scity" id="city" placeholder="City"> </select>
+                          <select class="form-control " name="scity" id="city" placeholder="City"> 
+                            <option selected="" disabled="">Select Country first</option>
+                          </select>
+                          @if ($errors->has('scity'))
+                          <div class="error alert-danger ">
+                            The city field is required.  
+                            {{-- {{ $errors->first('fname') }}  --}}
+                          </div>
+                          @endif
                       </div>  
                 </div> 
 
@@ -117,23 +149,47 @@
               <div class="row">
                 <div class="form-group col-6">
                     <label for="">Consignee</label>
-                    <input type="text" class="form-control" name="consignee" id="" placeholder="Consignee Name"> 
+                    <select class="form-control select2bs4" name="consignee" id="ccustomer">
+                      <option selected="" disabled="">Select Customer</option> 
+                      @foreach ($customer as $item)                              
+                        <option value={{$item->id}}> {{$item->customer_name}}</option>
+                      @endforeach
+                    </select>
+                    @if ($errors->has('consignee'))
+                    <div class="error alert-danger ">
+                      The consignee field is required.  
+                      {{-- {{ $errors->first('fname') }}  --}}
+                    </div>
+                    @endif
+                    {{-- <input type="text" class="form-control" name="consignee" id="" placeholder="Consignee Name">  --}}
                 </div>               
                 <div class="form-group col-6">
                   <label for="">Email Address</label>
-                  <input type="text" class="form-control" name="remail" id="" placeholder="Email Address"> 
+                  <input type="text" class="form-control" name="remail" id="cemail" placeholder="Email Address"> 
               </div>
                 <div class="form-group col-12">
                     <label for="">Address</label>
-                    <input type="text" class="form-control" name="raddress" id="" placeholder="Address">
+                    <input type="text" class="form-control" name="raddress" id="caddress" placeholder="Address">
+                    @if ($errors->has('raddress'))
+                    <div class="error alert-danger ">
+                      The address field is required.  
+                      {{-- {{ $errors->first('fname') }}  --}}
+                    </div>
+                    @endif
                 </div>
                 <div class="form-group col-6">
                   <label for="">Contact Number</label>
-                  <input type="text" class="form-control" name="rnumber" id="" placeholder="Contact Number"> 
+                  <input type="text" class="form-control" name="rnumber" id="ccontact" placeholder="Contact Number"> 
+                  @if ($errors->has('rnumber'))
+                  <div class="error alert-danger ">
+                    The contact number field is required.  
+                    {{-- {{ $errors->first('fname') }}  --}}
+                  </div>
+                  @endif
               </div>
                 <div class="form-group col-6">
                     <label for="">Zipcode</label>
-                    <input type="text" class="form-control" name="rzipcode" id="" placeholder="Zipcode">
+                    <input type="text" class="form-control" name="rzipcode" id="czipcode" placeholder="Zipcode">
                 </div>
                 <div class="form-group col-4">
                     <label for="">Country</label>
@@ -143,11 +199,25 @@
                         <option value="{{$item->id}}">{{$item->name}}</option>                          
                       @endforeach
                     </select>
+                    @if ($errors->has('rcountry'))
+                    <div class="error alert-danger ">
+                      The country field is required.  
+                      {{-- {{ $errors->first('fname') }}  --}}
+                    </div>
+                    @endif
                     {{-- <input type="text" class="form-control" name="rcountry" id="" placeholder="Country"> --}}
                 </div>
                 <div class="form-group col-4">
                     <label for="">City</label>
-                    <select  class="form-control" name="rcity" id="dcity" placeholder="City"> </select>
+                    <select  class="form-control" name="rcity" id="dcity" placeholder="City"> 
+                      <option selected="" disabled="">Select Country first</option>
+                    </select>
+                    @if ($errors->has('rcity'))
+                    <div class="error alert-danger ">
+                      The city field is required.  
+                      {{-- {{ $errors->first('fname') }}  --}}
+                    </div>
+                    @endif
                 </div>              
               </div> 
             </div> 
@@ -165,7 +235,7 @@
       <div class="row">
         <div class="form-group col-2">
             <label for="">Date Shipping</label>
-            <input type="date" class="form-control" name="date_ship" id="" placeholder="Shipping Date"> 
+            <input type="date" class="form-control" name="date_ship" id="" value="<?php echo date('Y-m-d'); ?>" placeholder="Shipping Date"> 
         </div> 
         <div class="form-group col-3">
           <label for="">Packaging Type</label>
@@ -202,45 +272,39 @@
         <div class="form-group col-3">
           <label for="">Courier Company</label>
           <select class="form-control select2bs4" name="courier" id="" >
-            <option selected="" disabled="">Select Status</option> 
+            <option selected="" disabled="">Select Courier</option> 
             @foreach ($company as $item)
-              <option value="{{$item->id}}">{{$item->name_com}}</option>                          
+              <option value="{{$item->id}}" {{$item->id ? 'selected' : '' }}  >{{$item->name_com}}</option>                          
             @endforeach
           </select>
           {{-- <input type="text" class="form-control" name="courier" id="" placeholder="Courier Company">  --}}
         </div>
-        <div class="form-group col-3">
+        <div class="form-group col-2">
           <label for="">Payment Mode</label>
           <select class="form-control select2bs4" name="pay_mode" id="" >
-            <option selected="" disabled="">Select Status</option> 
+            <option selected="" disabled="">Select Payment Mode</option> 
             @foreach ($payment_mode as $item)
-              <option value="{{$item->id}}">{{$item->pay_name}}</option>                          
+              <option value="{{$item->id}}"  {{$item->id ? 'selected' : '' }} >{{$item->pay_name}}</option>                           
             @endforeach
           </select>
           {{-- <input type="text" class="form-control" name="pay_mode" id="" placeholder="Payment Mode">  --}}
         </div>
-        <div class="form-group col-3">
-          <label for="">Custom Value</label>
+        <div class="form-group col-2">
+          <label for="">Custom Value ($)</label>
           <input type="text" class="form-control" name="c_value" id="" placeholder="Custom Value"> 
+        </div>
+        <div class="form-group col-2">
+          <label for="">Chargeable Weight (kg)</label>
+          <input type="text" class="form-control" name="cweight" id="total_result"  step="0.01" placeholder="Chargeable Weight" readonly> 
         </div>
       </div>
     </div>
   </div>
 </div>
 
-    <div class="container-fluid">
-      <button type="submit" class="btn btn-primary">Generate</button>
-    </div>
-  </form> 
-      </div> 
-      <!-- /.row -->  
-    </div><!-- /.container-fluid -->
-  </section>
+
  
 
-	<section class="content">
-    <div class="container-fluid">
-      <div class="row">
     <div class="col-md-12">
        <div class="card card-primary">
       <div class="card-header">
@@ -266,79 +330,91 @@
                 </thead>
                 <tbody class='items'> 
                 <tr>
-                  <td><input type="text" class="form-control" name="descrip[]"
+                  <td><input type="text" class="form-control" name="descrip"
                     placeholder="Description"
                     id='descr-0'>
                   </td>
-                  <td><input type="text" class="form-control req amnt" name="qty[]"
-                    id="qty-0"   onkeypress="return isNumber(event)"
-                    onkeyup="rowTotal('0')" 
-                    {{-- onkeypress="return isNumber(event)"
-                    onkeyup="rowTotal('0'), billUpyog()" --}}
-                    autocomplete="off" value="1"><input type="hidden" id="alert-0"
-                                                        value=""
-                                                        name="alert[]"></td>
-                  <td><input type="text" class="form-control req amnt" name="weight[]"
-                    id="wt-0"    onkeypress="return isNumber(event)" onkeyup="rowTotal('0')"
-                    autocomplete="off" value="1"><input type="hidden" id="alert-0"
-                                                        value=""
-                                                        name="alert[]"></td>
-                  <td><input type="text" class="form-control req amnt" name="length[]"
-                    id="length-0"   onkeypress="return isNumber(event)"  onkeyup="rowTotal('0')"
-                    autocomplete="off" value="1"><input type="hidden" id="alert-0"
-                                                        value=""
-                                                        name="alert[]"></td>
-                  <td><input type="text" class="form-control req amnt" name="width[]"
-                    id="width-0"  onkeypress="return isNumber(event)"   onkeyup="rowTotal('0')"
-                    autocomplete="off" value="1"><input type="hidden" id="alert-0"
-                                                        value=""
-                                                        name="alert[]"></td>
-                  <td><input type="text" class="form-control req amnt" name="height[]"
-                    id="height-0"   onkeypress="return isNumber(event)"  onkeyup="rowTotal('0')"
-                    autocomplete="off" value="1"><input type="hidden" id="alert-0"
-                                                        value=""
-                                                        name="alert[]"></td>   
+                  <td><input type="number" class="form-control" name="qty"  id=""               
+                    autocomplete="off" value="1"></td>
+                  <td><input type="number" class="form-control"  step="0.01" name="weight" id="weight"
+                    onKeyUp="suma();" value="1"> </td>
+                  <td><input type="number" class="form-control req amnt" name="length"
+                     onKeyUp="suma();" id="length"
+                    autocomplete="off" value="1"> </td>
+                  <td><input type="number" class="form-control req amnt" name="width"
+                      onKeyUp="suma();" id="width"
+                    autocomplete="off" value="1"> </td>
+                  <td><input type="number" class="form-control req amnt" name="height"
+                    id="height"   onKeyUp="suma();"
+                    autocomplete="off" value="1"> </td>   
                   <td>
-                    <span class='ttlText' id="result-0">0</span>
+                    <input type="number" class="form-control" name="vweight" 
+                    id="vweight"  step="0.01" readonly > 
+                    {{-- <span class='ttlText' id="total_result"></span> --}}
                   </td>
                   <td class="text-center">
-
                   </td>
-                </tr> 
-            
+                </tr>            
              
-                <tr class="last-item-row ">
-                  <td class="add-row">
-                      <button type="button" class="btn btn-primary" aria-label="Left Align"
-                              id="addbox">
-                          <i class="fa fa-plus-square"></i> Add boxes
-                      </button>
-                  </td>
-                  <td colspan="7"></td>
+                <tr class="last-item-row ">     
+                  <td colspan="9"></td>
               </tr>
-
                 </tbody>
               </table>
             </div>
             </div>
-         </div>
-          
+         </div>          
       </div>
-       </div>
-    </div>
    </div>
-</section>
- 
 
+ 
+   <div class="container-fluid">
+    <button type="submit" class="btn btn-primary">Generate</button>
+  </div>
+</form> 
+    </div> 
+    <!-- /.row -->  
+  </div><!-- /.container-fluid -->
+</section>
 @endsection 
 
 @section('js_script')
- 
-<script>
 
-  
- 
+<script type="text/javascript">
+  	function suma(){
+      var length = document.getElementById("length");
+      var width = document.getElementById("width");
+      var height = document.getElementById("height");
+      var weight = document.getElementById("weight");
 
+      var pound_weight_price = "5000.00";
+      var input = document.getElementById("total_result");
+      var vweight = document.getElementById("vweight");
+
+
+      var total_metric = length.value * width.value * height.value / pound_weight_price; 	//	<!--Volumetric weight result-->
+      var total_weight =  weight.value; 	
+
+      total_metric1 = parseFloat(total_metric).toFixed(2);
+
+      var calculate_weight;
+				if (total_weight > total_metric1) {
+					calculate_weight = total_weight;
+				} else {
+					calculate_weight = total_metric1;
+				}				
+        total_result = parseFloat(calculate_weight).toFixed(2);				
+        vweight.value = total_metric;
+
+      input.value = total_result;
+
+    }
+
+    
+</script>
+
+ 
+<script> 
   $('#addbox').on('click', function () {
     var cvalue = parseInt($('#oros').val()) + 1;
     var nxt = parseInt(cvalue);

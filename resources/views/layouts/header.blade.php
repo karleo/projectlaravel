@@ -179,7 +179,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{route('courier.index')}}" class="nav-link">
+            <a href="{{route('courier.index')}}" class="nav-link {{ request()->routeIs('courier.index') ? 'active' : ''}}">
               <i class="nav-icon far fa-image"></i>
               <p>
                 Courier
@@ -187,7 +187,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{route('employee.index')}}" class="nav-link">
+            <a href="{{route('employee.index')}}" class="nav-link {{ request()->routeIs('employee.index') ? 'active' : ''}} ">
               <i class="nav-icon fas fa-columns"></i>
               <p>
                 Employee
@@ -195,7 +195,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{route('customer.index')}}" class="nav-link active">
+            <a href="{{route('customer.index')}}" class="nav-link {{ request()->routeIs('customer.index') ? 'active' : ''}}">
               <i class="nav-icon fas fa-columns"></i>
               <p>
                 Customer
@@ -203,7 +203,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link {{ request()->routeIs('status.index') ? 'active' : ''}}">
               <i class="nav-icon far fa-envelope"></i>
               <p>
                 Maintenance
@@ -374,13 +374,33 @@ $(document).ready(function(){
           $('#address').val(data[0].address);
           $('#email').val(data[0].email);
           $('#contact').val(data[0].contact);
-          $('#zipcode').val(data[0].zipcode);
-          
-
+          $('#zipcode').val(data[0].zipcode);    
+          $('#city').val(data[0].city_id);    
+          $('#country').val(data[0].country_id);    
          console.log(data); 
         }
       })
      });
+
+     $('#ccustomer').change(function(){
+      var id = $(this).val(); 
+      var _token = $('input[name="_token"]').val();   
+      $.ajax({
+        url: "{{ route('customer.details') }}",
+        method: 'GET',
+        dataType: 'JSON',
+        data:{id:id, _token:_token},      
+        success:function(data){ 
+          $('#caddress').val(data[0].address);
+          $('#cemail').val(data[0].email);
+          $('#ccontact').val(data[0].contact);
+          $('#czipcode').val(data[0].zipcode);       
+          $('#ccity').val(data[0].city_id);    
+          $('#ccountry').val(data[0].country_id);    
+        }
+      })
+     });
+
   });   
 </script>
 

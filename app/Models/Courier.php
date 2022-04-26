@@ -56,5 +56,8 @@ class Courier extends Model
         return $this->belongsTo(City::class,  'dest_city_id','id');
     }
 
+    public function package(){
+        return $this->hasMany(PackageDetail::class, 'couriers_id','id');
+    }
 
 }

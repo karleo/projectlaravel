@@ -102,7 +102,7 @@ class CityController extends Controller
         $output='<option selected="" disabled="">Select City</option>';     
   
         foreach($get_city as $value){
-          $output.='<option value="'.$value->id.'">'.$value->name.'</option>';         
+          $output.='<option value="'.$value->id.'" >'.$value->name.'</option>';         
         }    
         return response()->json($output);
 

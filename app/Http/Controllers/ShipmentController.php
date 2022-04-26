@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use App\Models\Country;
 use App\Models\Courier;
 use App\Models\PackageType;
@@ -11,6 +12,7 @@ use App\Models\CourierStatus;
 use App\Models\CourierCompany;
 use App\Models\PaymentMode;
 use App\Models\Customer;
+use App\Models\PackageDetail;
 use PDF;
 
 class ShipmentController extends Controller
@@ -37,11 +39,11 @@ class ShipmentController extends Controller
     {
         //
         $country = Country::all();
-        $package = PackageType::all();
-        $shipmode = ShippingMode::all();
-        $status = CourierStatus::all();
-        $company = CourierCompany::all();
-        $payment_mode = PaymentMode::all();
+        $package = PackageType::all()->sortByDesc("id");
+        $shipmode = ShippingMode::all()->sortByDesc("id");
+        $status = CourierStatus::all()->sortByDesc("id");
+        $company = CourierCompany::all()->sortByDesc("id");
+        $payment_mode = PaymentMode::all()->sortByDesc("id");
         $customer = Customer::all();
         $maxID = Courier::max('tracking');        
         if (is_numeric($maxID)) {
@@ -66,6 +68,50 @@ class ShipmentController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'shipper' => 'required',
+            'saddress' => 'required',
+            'snumber' => 'required',
+            'scountry' => 'required',
+            'scity' => 'required',
+
+            'consignee' => 'required',
+            'raddress' => 'required',
+            'rnumber' => 'required',
+            'rcountry' => 'required',
+            'rcity' => 'required',
+
+            'date_ship' => 'required',
+            'pack_type' => 'required',
+            'c_value' => 'required',      
+        ]);
+
+        // $rules = [
+        //     'shipper' => 'required',
+        //     'shipper_addrs' => 'required',
+        //     'shipper_contact' => 'required',
+        //     'origin_country_id' => 'required',
+        //     'origin_city_id' => 'required',
+
+        //     'consignee' => 'required',
+        //     'consignee_addrs' => 'required',
+        //     'consignee_contact' => 'required',
+        //     'dest_country_id' => 'required',
+        //     'dest_city_id' => 'required',
+
+        //     'date_ship' => 'required',
+        //     'pack_type' => 'required',
+        //     'custom_value' => 'required',
+
+      
+        // ];
+
+        // $validator = Validator::make($request->all(),$rules);
+
+		// if ($validator->fails()) {		 
+        //     return response()->json($validator->errors(), 400);
+		// }
+
         $data = $request->input();
         $country = Country::all();
 
@@ -104,11 +150,21 @@ class ShipmentController extends Controller
             'ship_mode' => $data['ship_mode'],
             'ship_status' => $data['ship_status'], 
             'custom_value'=>  $data['c_value'],
+        ]);
 
+        $courier_id = Courier::max('id');
 
-
-
-
+        PackageDetail::create([
+            'couriers_id' => $courier_id,
+            'tracking' => str_pad($nextNum, 6, '0', STR_PAD_LEFT),
+            'description' => $data['descrip'],
+            'quantity' => $data['qty'],
+            'weight' => $data['weight'],
+            'length' => $data['length'],
+            'width' => $data['width'],
+            'height' => $data['height'],
+            'vweight' => $data['vweight'],
+            'cweight' => $data['cweight'],          
         ]);
 
         return redirect('courier'); 
@@ -186,7 +242,7 @@ class ShipmentController extends Controller
 
         $id = $request->input('id');
         $dcustomer = Customer::where('id',$id)->get();
-               
+
         return response()->json($dcustomer);
 
     }

@@ -6,3 +6,101 @@ php artisan make:model User -crm
 php artisan make:seeder UserSeeder
 php artisan db:seed --class=UserSeeder
 php artisan migrate:fresh --seed
+
+
+
+//
+
+
+	<section class="content">
+    <div class="container-fluid">
+      <div class="row">
+    <div class="col-md-12">
+       <div class="card card-primary">
+      <div class="card-header">
+        <h3 class="card-title">Package Details</h3>
+         </div>
+        <!-- <form role="form"> -->
+        <div class="card-body">
+          <div class="row">
+            <!-- /.card-header -->
+            <div id="item-x" class="card-body p-0 col-md-12" >
+              <table class="table table-sm">
+                <thead>
+                  <tr>
+                    <th style="width: 30%;" class='text-center'><b>Description</b></th>
+                    <th class='text-center'><b>Quantity	</b></th>
+                    <th class='text-center'><b>Weight (kg)</b></th>
+                    <th class='text-center'><b>Length (cm)</b></th>
+                    <th class='text-center'><b>Width (cm)</b></th>
+                    <th class='text-center'><b>Height (cm)</b></th>
+                    <th style="width: 10%;" class='text-center'><b>Weight vol. (kg)</b></th>
+                    <th class='text-center'>Action</th>										 
+                  </tr>
+                </thead>
+                <tbody class='items'> 
+                <tr>
+                  <td><input type="text" class="form-control" name="descrip[]"
+                    placeholder="Description"
+                    id='descr-0'>
+                  </td>
+                  <td><input type="text" class="form-control req amnt" name="qty[]"
+                    id="qty-0"   onkeypress="return isNumber(event)"
+                    onkeyup="rowTotal('0')" 
+                    {{-- onkeypress="return isNumber(event)"
+                    onkeyup="rowTotal('0'), billUpyog()" --}}
+                    autocomplete="off" value="1"><input type="hidden" id="alert-0"
+                                                        value=""
+                                                        name="alert[]"></td>
+                  <td><input type="text" class="form-control req amnt" name="weight[]"
+                    id="wt-0"    onkeypress="return isNumber(event)" onkeyup="rowTotal('0')"
+                    autocomplete="off" value="1"><input type="hidden" id="alert-0"
+                                                        value=""
+                                                        name="alert[]"></td>
+                  <td><input type="text" class="form-control req amnt" name="length[]"
+                    id="length-0"   onkeypress="return isNumber(event)"  onkeyup="rowTotal('0')"
+                    autocomplete="off" value="1"><input type="hidden" id="alert-0"
+                                                        value=""
+                                                        name="alert[]"></td>
+                  <td><input type="text" class="form-control req amnt" name="width[]"
+                    id="width-0"  onkeypress="return isNumber(event)"   onkeyup="rowTotal('0')"
+                    autocomplete="off" value="1"><input type="hidden" id="alert-0"
+                                                        value=""
+                                                        name="alert[]"></td>
+                  <td><input type="text" class="form-control req amnt" name="height[]"
+                    id="height-0"   onkeypress="return isNumber(event)"  onkeyup="rowTotal('0')"
+                    autocomplete="off" value="1"><input type="hidden" id="alert-0"
+                                                        value=""
+                                                        name="alert[]"></td>   
+                  <td>
+                    <span class='ttlText' id="result-0">0</span>
+                  </td>
+                  <td class="text-center">
+
+                  </td>
+                </tr> 
+            
+             
+                <tr class="last-item-row ">
+                  <td class="add-row">
+                      <button type="button" class="btn btn-primary" aria-label="Left Align"
+                              id="addbox">
+                          <i class="fa fa-plus-square"></i> Add boxes
+                      </button>
+                  </td>
+                  <td colspan="7"></td>
+              </tr>
+
+                </tbody>
+              </table>
+            </div>
+            </div>
+         </div>
+          
+      </div>
+       </div>
+    </div>
+   </div>
+</section>
+ 
+ //
