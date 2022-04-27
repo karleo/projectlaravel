@@ -202,8 +202,8 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link {{ request()->routeIs('status.index') ? 'active' : ''}}">
+          <li class="nav-item {{ request()->routeIs('status.index','country.index') ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link {{ request()->routeIs('status.index','country.index') ? 'active' : ''}}">
               <i class="nav-icon far fa-envelope"></i>
               <p>
                 Maintenance
@@ -397,6 +397,8 @@ $(document).ready(function(){
           $('#czipcode').val(data[0].zipcode);       
           $('#ccity').val(data[0].city_id);    
           $('#ccountry').val(data[0].country_id);    
+          $('#ccustomercode').val(data[0].customer_code);
+          
         }
       })
      });

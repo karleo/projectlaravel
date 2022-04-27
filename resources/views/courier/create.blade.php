@@ -166,6 +166,7 @@
                 <div class="form-group col-6">
                   <label for="">Email Address</label>
                   <input type="text" class="form-control" name="remail" id="cemail" placeholder="Email Address"> 
+                  {{-- <input type="text" class="form-control" name="rcode" id="ccustomercode" style="display"> --}}
               </div>
                 <div class="form-group col-12">
                     <label for="">Address</label>
@@ -296,6 +297,10 @@
         <div class="form-group col-2">
           <label for="">Chargeable Weight (kg)</label>
           <input type="text" class="form-control" name="cweight" id="total_result"  step="0.01" placeholder="Chargeable Weight" readonly> 
+        </div>
+        <div class="form-group col-2">
+          <label for="">Tracking AWB</label>
+          <input type="text" class="form-control" name="s_code" value="AY61" readonly="">
         </div>
       </div>
     </div>

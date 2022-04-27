@@ -123,7 +123,7 @@ class ShipmentController extends Controller
             $nextNum = 1;
         }      
 
-
+        // dd($data['rcode']);
         Courier::create([
             'tracking' => str_pad($nextNum, 6, '0', STR_PAD_LEFT),
             'reference' => $this->uniqueserial(),
