@@ -202,7 +202,7 @@
               </p>
             </a>
           </li>
-          <li class="nav-item {{ request()->routeIs('status.index','country.index') ? 'menu-open' : '' }}">
+          <li class="nav-item {{ request()->routeIs('status.index','country.index' ,'ccompany.index') ? 'menu-open' : '' }}">
             <a href="#" class="nav-link {{ request()->routeIs('status.index','country.index') ? 'active' : ''}}">
               <i class="nav-icon far fa-envelope"></i>
               <p>
@@ -212,37 +212,37 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('status.index')}}" class="nav-link">
+                <a href="{{route('status.index')}}" class="nav-link {{ request()->routeIs('status.index') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Status</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('country.index')}}" class="nav-link">
+                <a href="{{route('country.index')}}" class="nav-link {{ request()->routeIs('country.index') ? 'active' : ''}} ">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Country</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('city.index')}}" class="nav-link">
+                <a href="{{route('city.index')}}" class="nav-link {{ request()->routeIs('city.index') ? 'active' : ''}} ">
                   <i class="far fa-circle nav-icon"></i>
                   <p>City</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('package.index')}}" class="nav-link">
+                <a href="{{route('package.index')}}" class="nav-link {{ request()->routeIs('package.index') ? 'active' : ''}} ">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Package Type</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('shipmode.index')}}" class="nav-link">
+                <a href="{{route('shipmode.index')}}" class="nav-link {{ request()->routeIs('shipmode.index') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Shipping Mode</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('ccompany.index')}}" class="nav-link">
+                <a href="{{route('ccompany.index')}}" class="nav-link {{ request()->routeIs('ccompany.index') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Courier Company</p>
                 </a>

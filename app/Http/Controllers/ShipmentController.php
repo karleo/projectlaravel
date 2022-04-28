@@ -234,8 +234,10 @@ class ShipmentController extends Controller
         // return view('courier.label');
     }
 
-    public function label2(Request $request){
-        return view('courier.label2');
+    public function label2(Request $request,$id)
+    {
+        $data=  Courier::find($id);        
+        return view('courier.label2',compact('data'));
     }
 
     public function dcustomer(Request $request){

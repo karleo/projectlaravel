@@ -5,8 +5,7 @@
         <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">        
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <title>Tracking - PLNQ5900001747</title>
-
+        <title>Tracking - {{$data->tracking}}</title>
     <style>
         #page-wrap { width: 900px; margin: 0 auto; }
         
@@ -162,16 +161,16 @@
 								</tr>
 								<tr>
 									<td align="center" style=" border-top-color:#000000; border-right-color:#333; border-right-width:2px;border-right-style:solid;  border-collapse: collapse;">									 
-										<p style="text-align: center;"><font size="4"><b>SINOTRANS MIDDLE EAST FZE</b></font></p>
-										<p style="text-align: center; ">Contact No.: <strong>042990060</strong></p>
-										<p style="text-align: center; "><strong>JEBEL ALI, SOUTH JAFZA   </strong></p>
-										<p style="text-align: center;"><font size="5"><strong>Dubai | UAE</strong></font></p>
+										<p style="text-align: center;"><font size="4"><b>{{  $data->sender->customer_name }}</b></font></p>
+										<p style="text-align: center; ">Contact No.: <strong>{{$data->shipper_contact}}</strong></p>
+										<p style="text-align: center; "><strong>{{$data->shipper_addrs}}   </strong></p>
+										<p style="text-align: center;"><font size="5"><strong>{{$data->city->name}} | {{$data->country->name}}</strong></font></p>
 									</td>
 									<td>
-										<p style="text-align: center;"><font size="4"><b>&nbsp;&nbsp;&nbsp;NAQEL EXPRESS</b></font></p>
-										<p style="text-align: center;">&nbsp;&nbsp;&nbsp;Contact No.: <strong>593448888 | 593448888</strong></p>
-										<p style="text-align: center; "><strong>&nbsp;&nbsp;&nbsp;Riyadh  </strong></p>
-										<p style="text-align: center;"><font size="5"><strong>&nbsp;&nbsp;Riyadh | KSA</strong></font></p>
+										<p style="text-align: center;"><font size="4"><b>&nbsp;&nbsp;&nbsp;{{$data->receiver->customer_name}}</b></font></p>
+										<p style="text-align: center;">&nbsp;&nbsp;&nbsp;Contact No.: <strong>{{$data->consignee_contact}}</strong></p>
+										<p style="text-align: center; "><strong>&nbsp;&nbsp;&nbsp;{{$data->consignee_addrs}}  </strong></p>
+										<p style="text-align: center;"><font size="5"><strong>&nbsp;&nbsp;{{$data->dest_city->name}} | {{$data->dest_country->name}}</strong></font></p>
 									</td>
 								</tr>
 							</tbody>
@@ -182,18 +181,18 @@
 							
 								<tr>
 									<td width="50%">
-										<p><strong>Type of Service:  </strong>Express Services  </p>
-										<p><strong>No. of Pieces: </strong> 675 </p>
-										<p><strong>Actual Weight:  </strong> 7,577.03 &nbsp; Kg </p>
+										{{-- <p><strong>Type of Service:  </strong>Express Services  </p> --}}
+										<p><strong>No. of Pieces: </strong> {{$data->pack->quantity}} </p>
+										<p><strong>Actual Weight:  </strong> {{$data->pack->weight}} &nbsp; Kg </p>
 											<!-- <p><strong>Duties and Taxes: </strong></p> -->
 										<!-- <p><strong>COMPANY COURIER</strong></p> -->
-										<p><strong>DELIVERY TIME :</strong>  1 - 3 working days</p>
+							
 										 
 									</td>
 									<td width="50%"> 
-										<p><strong>Dimension Weight: </strong> 0.00  &nbsp; Kg</p>
-										<p><strong>Chargeable Weight:  </strong>7,577.03 kg </p>
-										<p><strong>Packaging Type:  </strong> Corrugated boxes</p>
+										<p><strong>Dimension Weight: </strong>{{$data->pack->vweight}}  &nbsp; Kg</p>
+										<p><strong>Chargeable Weight:  </strong>{{$data->pack->cweight}} kg </p>
+										{{-- <p><strong>Packaging Type:  </strong> Corrugated boxes</p>'' --}}
 										<!-- <p><strong>Declared Value: </strong> 259,387.75 AED	</p> -->
 								
 									</td>
@@ -210,7 +209,7 @@
 									<td width="100%">
 										<p><strong>CONTENTS / DESCRIPTIONS </strong></p>
 										<!-- <p><font size=4>Accessory (no-battery)</font></br><font size=4>ALLOY JEWELRY/BAGS/HOUSEHOLDS/SUNGLASSES/BEAUTY DEVICE/GARMENTS/HAT/MOBILE PHONE ACCESS/SHOES/STATIONERY  </font></p> -->
-										<p><font size="4"> </font><br><font size="4">ALLOY JEWELRY/BAGS/HOUSEHOLDS/SUNGLASSES/BEAUTY DEVICE/GARMENTS/HAT/MOBILE PHONE ACCESS/SHOES/STATIONERY  </font></p>
+										<p><font size="4"> </font><br><font size="4">  {{$data->pack->description}}  </font></p>
 									</td>
 								</tr>
 								<!-- <tr>
@@ -231,8 +230,8 @@
 									<td width="50%"> 
 									<p style="padding:2px; text-align:center; font-size:24px; font-family:Arial,Helvetica;"><strong>TRACKING  / WAYBILL </strong></p>
 										  <section class="output"> 
-										 <img src="https://barcode.tec-it.com/barcode.ashx?data=PLNQ5900001747&amp;code=Code39&amp;multiplebarcodes=false&amp;translate-esc=false&amp;unit=Fit&amp;dpi=80&amp;imagetype=Gif&amp;rotation=0&amp;color=%23000000&amp;bgcolor=%23ffffff&amp;qunit=Mm&amp;quiet=0&amp;modulewidth=25" alt="PLNQ5900001747"> </section>
-									 
+										 <img src="https://barcode.tec-it.com/barcode.ashx?data={{$data->tracking}}&amp;code=Code39&amp;multiplebarcodes=false&amp;translate-esc=false&amp;unit=Fit&amp;dpi=80&amp;imagetype=Gif&amp;rotation=0&amp;color=%23000000&amp;bgcolor=%23ffffff&amp;qunit=Mm&amp;quiet=0&amp;modulewidth=25" alt="PLNQ5900001747"> </section>
+										 {!! DNS1D::getBarcodeHTML($data->tracking, 'C39') !!}  {{$data->tracking}}
 									</td>
 								</tr>
 								

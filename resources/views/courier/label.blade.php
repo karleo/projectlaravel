@@ -119,8 +119,7 @@
                                             <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-top:5px;border-top:#000000 1px solid;">
                                                 <tbody><tr>
                                                     <td style="padding:5px; font-size:12px; text-align:center">
-                                                        <span style="font-weight:bold; font-size: 14px;">Contains: </span>
-                                                                                                                                                                            Trøje
+                                                        <span style="font-weight:bold; font-size: 14px;">Contains: </span>                                                                                                                                                                            Trøje
                                                                                                                                                                         </td>
                                                 </tr>
                                             </tbody></table>

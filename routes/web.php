@@ -31,7 +31,7 @@ Route::post('/employee/create', [App\Http\Controllers\EmployeeController::class,
 Route::get('/courier', [App\Http\Controllers\ShipmentController::class, 'index'])->name('courier.index');
 Route::get('/courier/create', [App\Http\Controllers\ShipmentController::class, 'create'])->name('courier.create');
 Route::get('/courier/label/{id}', [App\Http\Controllers\ShipmentController::class, 'PDFgenerate'])->name('courier.label');
-Route::get('/courier/label2', [App\Http\Controllers\ShipmentController::class, 'label2'])->name('label2');
+Route::get('/courier/label2/{id}', [App\Http\Controllers\ShipmentController::class, 'label2'])->name('label2');
 Route::post('/courier/create', [App\Http\Controllers\ShipmentController::class, 'store'])->name('courier.store');
 Route::get('/dcustomer', [App\Http\Controllers\ShipmentController::class, 'dcustomer'])->name('customer.details');
 

@@ -7,13 +7,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Shipment Form</h1>  
-          <div class="row">
-            <div class="col-sm-3">
-              <label for="">Tracking</label>  
-              <input type="text" name="tracking" value="{{'PL' . $data}}" readonly disabled> 
-            </div>
-          </div>
+          <h1>Shipment Form</h1>            
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -25,7 +19,6 @@
     </div><!-- /.container-fluid -->
   </section>
 <!-- section end-->
-
     
 <section class="content">
     <div class="container-fluid">
@@ -119,7 +112,7 @@
                     </div>
                       <div class="form-group col-4">
                           <label for="">City</label>
-                          <select class="form-control " name="scity" id="city" placeholder="City"> 
+                          <select class="form-control  name="scity" id="city" placeholder="City"> 
                             <option selected="" disabled="">Select Country first</option>
                           </select>
                           @if ($errors->has('scity'))
@@ -270,7 +263,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="form-group col-3">
+        <div class="form-group col-2">
           <label for="">Courier Company</label>
           <select class="form-control select2bs4" name="courier" id="" >
             <option selected="" disabled="">Select Courier</option> 
@@ -297,11 +290,15 @@
         <div class="form-group col-2">
           <label for="">Chargeable Weight (kg)</label>
           <input type="text" class="form-control" name="cweight" id="total_result"  step="0.01" placeholder="Chargeable Weight" readonly> 
+        </div>        
+        <div class="form-group">           
+          <label for="">Tracking </label>
+          <input type="text" class="form-control" name="rcode" id="ccustomercode"  size="5" readonly="">   
         </div>
-        <div class="form-group col-2">
-          <label for="">Tracking AWB</label>
-          <input type="text" class="form-control" name="s_code" value="AY61" readonly="">
-        </div>
+        <div class="form-group">           
+          <label for="">AWB</label>
+          <input type="text" class="form-control" name="tracking" value="{{$data}}" size="10" readonly="">      
+        </div>      
       </div>
     </div>
   </div>
@@ -386,21 +383,23 @@
 @section('js_script')
 
 <script type="text/javascript">
-  	function suma(){
+   function suma(){
+    setTimeout(function() {
+
       var length = document.getElementById("length");
       var width = document.getElementById("width");
       var height = document.getElementById("height");
       var weight = document.getElementById("weight");
 
-      var pound_weight_price = "5000.00";
+      var pound_weight_price = 5000.00;
       var input = document.getElementById("total_result");
       var vweight = document.getElementById("vweight");
 
-
-      var total_metric = length.value * width.value * height.value / pound_weight_price; 	//	<!--Volumetric weight result-->
+      var lxwxh  = (length.value * width.value * height.value);
+      var total_metric = lxwxh  / pound_weight_price; 	//	<!--Volumetric weight result-->
       var total_weight =  weight.value; 	
 
-      total_metric1 = parseFloat(total_metric).toFixed(2);
+      total_metric1 = parseFloat(total_metric);
 
       var calculate_weight;
 				if (total_weight > total_metric1) {
@@ -408,12 +407,14 @@
 				} else {
 					calculate_weight = total_metric1;
 				}				
-        total_result = parseFloat(calculate_weight).toFixed(2);				
-        vweight.value = total_metric;
+        total_result = parseFloat(calculate_weight);	
+        console.log(total_result);
 
-      input.value = total_result;
-
+        vweight.value = total_metric1;
+        input.value = total_result;
+      }, 500);
     }
+   
 
     
 </script>

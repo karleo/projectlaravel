@@ -40,6 +40,14 @@ class Courier extends Model
 
     ];
 
+    public function sender(){
+        return $this->belongsTo(Customer::class, 'shipper' , 'id');
+    }
+
+    public function receiver(){
+        return $this->belongsTo(Customer::class, 'consignee' , 'id');
+    }
+
     public function city(){
         return $this->belongsTo(City::class,  'origin_city_id','id');
     }
@@ -56,8 +64,9 @@ class Courier extends Model
         return $this->belongsTo(City::class,  'dest_city_id','id');
     }
 
-    public function package(){
-        return $this->hasMany(PackageDetail::class, 'couriers_id','id');
+    public function pack(){
+        return $this->belongsTo(PackageDetail::class, 'id', 'couriers_id');
     }
 
+ 
 }
