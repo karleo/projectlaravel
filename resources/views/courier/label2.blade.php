@@ -137,7 +137,7 @@
 					<td>						
 						<table style="text-align: center; table-layout:fixed;" cellspacing="1" width="100%">
 							<tbody>
-								<tr>
+								<tr>               
 									<td width="25%">
 										<!-- <p style="text-align: left;"><font size=6 face="arial"><strong>Express Services </strong></font></p>										 -->
 										<p style="text-align: left;"><font size="4" face="arial"><strong> SHIPMENT RECEIPT</strong></font></p>										
@@ -148,7 +148,7 @@
 								</tr>
 							</tbody>
 						</table>
-						April 23,2022						<hr>
+						<?php echo  date('F j, Y');?>					<hr>
 						<font size="4"></font><table width="100%" style="text-align: center; table-layout:fixed;">
 							<tbody>
 								<tr bgcolor="#6c757d">

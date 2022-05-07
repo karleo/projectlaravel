@@ -139,7 +139,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./index.html" class="nav-link">
+                <a href="{{route('employee.dash')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Dashboard v1</p>
                 </a>
@@ -331,6 +331,15 @@
 <script src="{{asset('html/plugins/datatables-buttons/js/buttons.print.min.js')}}"></script>
 <script src="{{asset('html/plugins/datatables-buttons/js/buttons.colVis.min.js')}}"></script>
  
+
+<!-- OPTIONAL SCRIPTS -->
+<script src="{{asset('html/plugins/chart.js/Chart.min.js')}}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{{asset('html/dist/js/demo.js')}}"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="{{asset('html/dist/js/pages/dashboard3.js')}}"></script>
+
+
 <!-- Select2 -->
 <script src="{{asset('html/plugins/select2/js/select2.full.min.js')}}"></script>
 <!-- Page specific script -->

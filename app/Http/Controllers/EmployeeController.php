@@ -161,4 +161,18 @@ class EmployeeController extends Controller
     public function employee_doc(Request $request){
 
     }
+
+    public function dash(){
+        return view('timesheet.index');
+    }
+
+    public function add_time(){
+        return view('timesheet.create');
+    }
+    public function store_time(){
+
+        return view('timesheet.index');
+    }
+
+
 }

@@ -290,7 +290,11 @@
         <div class="form-group col-2">
           <label for="">Chargeable Weight (kg)</label>
           <input type="text" class="form-control" name="cweight" id="total_result"  step="0.01" placeholder="Chargeable Weight" readonly> 
-        </div>        
+        </div>     
+        <div class="form-group">           
+          <label for=""class="text-green">  . </label>
+          <input type="text" class="form-control" value="PL" id=""  size="1" readonly="">   
+        </div>   
         <div class="form-group">           
           <label for="">Tracking </label>
           <input type="text" class="form-control" name="rcode" id="ccustomercode"  size="5" readonly="">   
@@ -337,21 +341,21 @@
                     id='descr-0'>
                   </td>
                   <td><input type="number" class="form-control" name="qty"  id=""               
-                    autocomplete="off" value="1"></td>
+                    autocomplete="off" value="1" min="0"></td>
                   <td><input type="number" class="form-control"  step="0.01" name="weight" id="weight"
-                    onKeyUp="suma();" value="1"> </td>
+                    onKeyUp="suma();" value="1" min="0"> </td>
                   <td><input type="number" class="form-control req amnt" name="length"
                      onKeyUp="suma();" id="length"
-                    autocomplete="off" value="1"> </td>
+                    autocomplete="off" value="1" min="0"> </td>
                   <td><input type="number" class="form-control req amnt" name="width"
                       onKeyUp="suma();" id="width"
-                    autocomplete="off" value="1"> </td>
+                    autocomplete="off" value="1" min="0"> </td>
                   <td><input type="number" class="form-control req amnt" name="height"
                     id="height"   onKeyUp="suma();"
-                    autocomplete="off" value="1"> </td>   
+                    autocomplete="off" value="1" min="0"> </td>   
                   <td>
                     <input type="number" class="form-control" name="vweight" 
-                    id="vweight"  step="0.01" readonly > 
+                    id="vweight"  step="0.01" min="0" readonly > 
                     {{-- <span class='ttlText' id="total_result"></span> --}}
                   </td>
                   <td class="text-center">
@@ -370,8 +374,9 @@
    </div>
 
  
-   <div class="container-fluid">
+   <div class="container-fluid  text-right" >
     <button type="submit" class="btn btn-primary">Generate</button>
+    <a href="{{route('courier.index')}}" class="btn btn-info">Return Dashboard</a>
   </div>
 </form> 
     </div> 
