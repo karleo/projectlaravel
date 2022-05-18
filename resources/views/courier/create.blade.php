@@ -112,7 +112,7 @@
                     </div>
                       <div class="form-group col-4">
                           <label for="">City</label>
-                          <select class="form-control  name="scity" id="city" placeholder="City"> 
+                          <select class="form-control"  name="scity" id="city" placeholder="City"> 
                             <option selected="" disabled="">Select Country first</option>
                           </select>
                           @if ($errors->has('scity'))
