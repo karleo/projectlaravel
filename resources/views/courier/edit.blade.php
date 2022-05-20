@@ -47,42 +47,26 @@
             @endif --}}
               <div class="card-body">
                 <div class="row">
-                    <div class="flex-column flex-root col-6">
-                        <span class=" badge badge-primary right"> Shipment From </span>                                 
+                    <div class="d-flex flex-column col-6">
+                        <span class="p-3 font-weight-bold"> Shipment Details </span>                                 
                         <span class="brand-text"> {{$data->sender->customer_name}} </span>
+                        <span class="brand-text"> {{$data->shipper_email}} </span>
+                        <span class="brand-text"> {{$data->shipper_addrs}} </span>
+                        <span class="brand-text"> {{$data->shipper_contact}} </span>
+                        <span class="brand-text"> {{$data->city->name}} </span>
+                        <span class="brand-text"> {{$data->country->name}} </span>
                     {{-- <input type="text" class="form-control" name="shipper" value="{{$data->sender->customer_name}}" id="" placeholder="" readonly>  --}}
-                        <span class=" badge badge-primary right"> Shipment From </span>            
                     </div>
-                    <div class="form-group col-6">
-                      <label for="">Email Adress</label>
-                      <input type="text" class="form-control" name="semail" value="{{$data->shipper_email}}" placeholder="Email Address" readonly> 
-                    </div>  
-                    <div class="form-group col-12">
-                        <label for="">Address</label>
-                        <input type="text" class="form-control" name="saddress" value="{{$data->shipper_addrs}}"  placeholder="Address" readonly>
-                     
-                    </div>
-                    <div class="form-group col-4">
-                        <label for="">Contact Number</label>
-                        <input type="text" class="form-control" name="snumber"  value="{{$data->shipper_contact}}" id="contact" placeholder="Contact Number" readonly> 
-                       
-                    </div> 
-                    <div class="form-group col-3"  >
-                      <label for="">Zip Code</label>
-                      <input type="text" class="form-control" name="szipcode" id="zipcode" placeholder="Zip Code" readonly> 
-                    </div>
-                    <div class="form-group col-3" style="display:none">
-                      <label for="">Contact Number</label>
-                      <input type="text" class="form-control" name="" id="" placeholder="Contact Number" readonly> 
-                    </div>        
-                    <div class="form-group col-6">
-                      <label for="">Country</label>    
-                      <input type="text" class="form-control" name="scountry" value="{{$data->country->name}}"  id="country" placeholder="Country" readonly>
-                    </div>
-                      <div class="form-group col-4">
-                          <label for="">City</label>                     
-                          <input type="text" class="form-control" name="scity" value="{{$data->city->name}}" id="" placeholder="City" readonly>
-                      </div>  
+                    <div class="d-flex flex-column col-6">
+                      <span class="p-3 font-weight-bold"> Consignee From </span>                                 
+                      <span class="brand-text"> {{$data->receiver->customer_name}} </span>
+                      <span class="brand-text"> {{$data->consignee_email}} </span>
+                      <span class="brand-text"> {{$data->consignee_addrs}} </span>
+                      <span class="brand-text"> {{$data->consignee_addrs}} </span>
+                      <span class="brand-text"> {{$data->dest_city->name}} </span>
+                      <span class="brand-text"> {{$data->dest_country->name}} </span>
+                   
+                    </div>   
                 </div> 
 
               </div>              
