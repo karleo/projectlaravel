@@ -161,4 +161,15 @@ class EmployeeController extends Controller
     public function employee_doc(Request $request){
 
     }
+
+    public function caldate(Request $request)
+    {
+        $birthdate = $request->input('bdate');
+        $today = date('Y-m-d');
+        $date1=date_create($birthdate);
+        $date2=date_create($today);
+        $diff=date_diff($date1,$date2);
+        $value['years'] = $diff->format("%Y Years %M Months %D Days");
+        return response()->json($value);             
+    }
 }

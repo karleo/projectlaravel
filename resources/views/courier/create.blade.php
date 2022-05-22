@@ -414,8 +414,6 @@
         input.value = total_result;
       }, 500);
     }
-   
-
     
 </script>
 

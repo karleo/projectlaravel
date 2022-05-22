@@ -26,6 +26,7 @@ Route::get('/employee', [App\Http\Controllers\EmployeeController::class, 'index'
 Route::get('/employee/edit/{id}', [App\Http\Controllers\EmployeeController::class, 'edit'])->name('employee.edit');
 Route::get('/employee/create', [App\Http\Controllers\EmployeeController::class, 'create'])->name('employee.create');
 Route::post('/employee/create', [App\Http\Controllers\EmployeeController::class, 'store'])->name('employee.store');
+Route::get('caldate', [App\Http\Controllers\EmployeeController::class, 'caldate'])->name('employee.caldate');
 
 
 Route::get('/courier', [App\Http\Controllers\ShipmentController::class, 'index'])->name('courier.index');
