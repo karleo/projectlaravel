@@ -26,11 +26,13 @@ Route::get('/employee', [App\Http\Controllers\EmployeeController::class, 'index'
 Route::get('/employee/edit/{id}', [App\Http\Controllers\EmployeeController::class, 'edit'])->name('employee.edit');
 Route::get('/employee/create', [App\Http\Controllers\EmployeeController::class, 'create'])->name('employee.create');
 Route::post('/employee/create', [App\Http\Controllers\EmployeeController::class, 'store'])->name('employee.store');
-Route::get('caldate', [App\Http\Controllers\EmployeeController::class, 'caldate'])->name('employee.caldate');
+Route::get('/employee/dash', [App\Http\Controllers\EmployeeController::class, 'dash'])->name('employee.dash');
+Route::get('/employee/timesheet', [App\Http\Controllers\EmployeeController::class, 'add_time'])->name('employee.add_time');
 
 
 Route::get('/courier', [App\Http\Controllers\ShipmentController::class, 'index'])->name('courier.index');
 Route::get('/courier/create', [App\Http\Controllers\ShipmentController::class, 'create'])->name('courier.create');
+Route::get('/courier/edit/{id}', [App\Http\Controllers\ShipmentController::class, 'edit'])->name('courier.edit');
 Route::get('/courier/label/{id}', [App\Http\Controllers\ShipmentController::class, 'PDFgenerate'])->name('courier.label');
 Route::get('/courier/label2/{id}', [App\Http\Controllers\ShipmentController::class, 'label2'])->name('label2');
 Route::post('/courier/create', [App\Http\Controllers\ShipmentController::class, 'store'])->name('courier.store');

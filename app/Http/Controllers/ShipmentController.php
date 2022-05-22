@@ -190,6 +190,8 @@ class ShipmentController extends Controller
     public function edit($id)
     {
         //
+        $data=  Courier::find($id);        
+        return view('courier.edit',compact('data'));
     }
 
     /**

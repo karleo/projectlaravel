@@ -48,8 +48,8 @@
                 <tbody>
                   @foreach ($data as $row) 
                 <tr> 
-                  <td>{{$row->tracking}}  </td>
-                  <td>{{$row->tracking}}  </td>
+                  <td>{{$row->date_ship}}  </td>
+                  <td>   <a href="{{route('courier.edit', $row->id)}}"  data-toggle="tooltip" data-placement="top" title="Edit Status"> {{$row->tracking}}</a>   </td>
                   <td>{{$row->reference}}  </td>
                   <td>{{$row->country->name}} - {{$row->city->name}}  </td>
                   <td>{{$row->dest_country->name}} - {{$row->dest_city->name}}  </td>
