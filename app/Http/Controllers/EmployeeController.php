@@ -9,6 +9,7 @@ use App\Models\Employee;
 use App\Models\Country;
 use App\Models\City;
 use DB;
+use App\Models\User;
 
 class EmployeeController extends Controller
 {
@@ -99,6 +100,19 @@ class EmployeeController extends Controller
                 'address02' => $data['address02'],
                 'image' =>  $newImageName,
             ]);
+            
+            // User::create([
+            //     'name' => $data['user_name'],
+            //     'email' => $data['email'],
+            //     'password' => Hash::make($data['password']),
+            // ]);
+
+            
+
+            // $Employee = Employee::find($id); 
+            // $Employee->name = $data['user_id'];
+          
+            // $Employee->save();
 
         // }
         // catch(Exception $e){

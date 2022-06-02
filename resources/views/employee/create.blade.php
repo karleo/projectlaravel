@@ -90,7 +90,7 @@
                     </div>
                     <div class="form-group col-3">
                         <label for="">Birth Date</label>
-                        <input type="date" class="form-control" onKeyUp="agec();"  name="bdate" id="birth_date" placeholder="">
+                        <input type="date" class="form-control"   onKeyUp="getAge();" name="bdate" id="birthdate" placeholder="">
                         @if ($errors->has('bdate'))
                         <div class="error alert-danger ">
                           The birth date field is required.   
@@ -99,7 +99,7 @@
                     </div>
                     <div class="form-group col-3">
                         <label for=" ">Age</label>
-                        <input type="text" class="form-control" name="age" id="resulta_edad" placeholder="Age">
+                        <input type="text" class="form-control" onkename="age" id="age" placeholder="Age">
                         @if ($errors->has('age'))
                         <div class="error alert-danger ">
                           The age field is required.   
@@ -150,9 +150,23 @@
                       {{-- <input type="text" class="form-control" name="city" id="" placeholder="City"> --}}
                   </div> 
                 </div> 
+                <div class="row"> 
+                  <div class="form-group col-4">
+                      <label for="">Username</label>
+                      <input type="text" class="form-control" name="username" id=" " placeholder="Username">
+                      @if ($errors->has('username'))
+                      <div class="error alert-danger ">
+                        The address field is required.   
+                      </div>
+                      @endif
+                  </div>
+                  <div class="form-group col-4">
+                      <label for=" ">Password</label>
+                      <input type="text" class="form-control" name="password" id="" placeholder="password">
+                  </div> 
+                </div>
               </div>
               <!-- /.card-body -->
-
             </div>
   
               <div class="container-fluid">
@@ -177,20 +191,22 @@
 
 <script type="text/javascript">
  
-    function agec(){
-      var birthday = document.getElementById('birth_date').value;
-
-      // var d = new Date();
-      // var strDate = d.getFullYear() +  "-" +  (d.getMonth()+1) + "-" + d.getDate();
-      // var edad = document.getElementById('resulta_edad');
-      var age_me =  DateDiff(birthday, new Date(date));
-      // console.log(strDate);
-      // console.log(birthday);
-      console.log(age_me);
+ function getAge() 
+  {
+      var today = new Date();
       
+      var birthDate = document.getElementById("birthDate");
+      var age = today.getFullYear() - birthDate.getFullYear();
+      var m = today.getMonth() - birthDate.getMonth();
+      if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) 
+      {
+          age--;
+      }
+      age.value = age;
 
-
-
-    }
+      console.log(age);
+  }
  
 </script>
+
+ 

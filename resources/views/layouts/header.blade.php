@@ -291,7 +291,7 @@
 <!-- Bootstrap 4 -->
 <script src="{{ asset('html/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- ChartJS -->
-<script src="{{asset('html/plugins/chart.js/Chart.min.js')}}"></script>
+{{-- <script src="{{asset('html/plugins/chart.js/Chart.min.js')}}"></script> --}}
 <!-- Sparkline -->
 <script src="{{asset('html/plugins/sparklines/sparkline.js')}}"></script>
 <!-- JQVMap -->
@@ -333,11 +333,11 @@
  
 
 <!-- OPTIONAL SCRIPTS -->
-<script src="{{asset('html/plugins/chart.js/Chart.min.js')}}"></script>
+{{-- <script src="{{asset('html/plugins/chart.js/Chart.min.js')}}"></script> --}}
 <!-- AdminLTE for demo purposes -->
-<script src="{{asset('html/dist/js/demo.js')}}"></script>
+{{-- <script src="{{asset('html/dist/js/demo.js')}}"></script> --}}
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{asset('html/dist/js/pages/dashboard3.js')}}"></script>
+{{-- <script src="{{asset('html/dist/js/pages/dashboard3.js')}}"></script> --}}
 
 
 <!-- Select2 -->
@@ -461,6 +461,9 @@ $(document).ready(function(){
     })
   });
 </script>
+
+
+ 
 
 @yield('js_script')
 

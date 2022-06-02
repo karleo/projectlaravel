@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddColumnToCustomerLongtitude extends Migration
+class AddColumnEmpIdToEmployeesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class AddColumnToCustomerLongtitude extends Migration
      */
     public function up()
     {
-        Schema::table('customers', function (Blueprint $table) {
+        Schema::table('employees', function (Blueprint $table) {
             //
-            $table->string('latitude',200);
-            $table->string('longitude',200);
+            $table->string('emp_no',200)->after('last_name')->unique();
+            $table->integer('nationality')->after('hire_date');
+            
         });
     }
 
@@ -27,11 +28,9 @@ class AddColumnToCustomerLongtitude extends Migration
      */
     public function down()
     {
-        Schema::table('customers', function (Blueprint $table) {
+        Schema::table('employees', function (Blueprint $table) {
             //
-            $table->dropColumn('latitude');
-            $table->dropColumn('longitude');
-
+            $table->dropColumn('emp_no');
         });
     }
 }
