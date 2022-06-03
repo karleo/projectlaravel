@@ -10,6 +10,7 @@ use App\Models\Country;
 use App\Models\City;
 use DB;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class EmployeeController extends Controller
 {
@@ -101,18 +102,20 @@ class EmployeeController extends Controller
                 'image' =>  $newImageName,
             ]);
             
-            // User::create([
-            //     'name' => $data['user_name'],
-            //     'email' => $data['email'],
-            //     'password' => Hash::make($data['password']),
-            // ]);
+            User::create([
+                'name' => $data['user_name'],
+                'email' => '@@@',
+                'password' => Hash::make($data['password']),
+            ]);
 
             
+            $userid = User::max('id');
+            $employeeID = Employee::max('id');
 
-            // $Employee = Employee::find($id); 
-            // $Employee->name = $data['user_id'];
-          
-            // $Employee->save();
+
+            $Employee = Employee::find($employeeID); 
+            $Employee->user_id = $userid;          
+            $Employee->save();
 
         // }
         // catch(Exception $e){

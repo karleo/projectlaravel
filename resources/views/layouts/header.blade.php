@@ -464,6 +464,13 @@ $(document).ready(function(){
 
 
  
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#checkbox').on('change', function(){
+        $('#password').attr('type',$('#checkbox').prop('checked')==true?"text":"password"); 
+    });
+});
+</script>
 
 @yield('js_script')
 

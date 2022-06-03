@@ -47,6 +47,16 @@
             @endif --}}
               <div class="card-body">
                 <div class="row">
+                  <div class="form-group col-3">
+                    <label for="">Employee No.</label>
+                    <input type="text" class="form-control" name="emp_no " id="" placeholder="Employee No.">
+                    @if ($errors->has('emp_no'))
+                    <div class="error alert-danger ">
+                      The first name field is required.  
+                      {{-- {{ $errors->first('fname') }}  --}}
+                    </div>
+                    @endif
+                  </div>
                 <div class="form-group col-3">
                   <label for="">First Name</label>
                   <input type="text" class="form-control" name="fname" id="" placeholder="First Name">
@@ -69,18 +79,18 @@
                       The last name field is required.   
                     </div>
                     @endif
-                  </div>
-                <div class="form-group col-3">
-                  <label for="">Photo Profile</label>
-                  <div class="form-group">
-                    <div class="form-group">
-                      <input type="file" class="form-control" name="image" id="image">
-                    </div> 
-                  </div>
-                </div>
+                  </div>                
                 </div>
 
                 <div class="row">
+                  <div class="form-group col-3">
+                    <label for="">Photo Profile</label>
+                    <div class="form-group">
+                      <div class="form-group">
+                        <input type="file" class="form-control" name="image" id="image">
+                      </div> 
+                    </div>
+                  </div>
                     <div class="form-group col-3">
                         <label for="">Gender</label>
                         <select class="form-control" name="gender">
@@ -90,7 +100,7 @@
                     </div>
                     <div class="form-group col-3">
                         <label for="">Birth Date</label>
-                        <input type="date" class="form-control"   onKeyUp="getAge();" name="bdate" id="birthdate" placeholder="">
+                        <input type="date" class="form-control"    name="bdate"   placeholder="">
                         @if ($errors->has('bdate'))
                         <div class="error alert-danger ">
                           The birth date field is required.   
@@ -99,13 +109,17 @@
                     </div>
                     <div class="form-group col-3">
                         <label for=" ">Age</label>
-                        <input type="text" class="form-control" onkename="age" id="age" placeholder="Age">
+                        <input type="text" class="form-control"  name="age"   placeholder="Age">
                         @if ($errors->has('age'))
                         <div class="error alert-danger ">
                           The age field is required.   
                         </div>
                         @endif
                     </div>
+                                    
+                </div> 
+                
+                <div class="row"> 
                     <div class="form-group col-3">
                         <label for=" ">Hire Date</label>
                         <input type="date" class="form-control"  name="hdate" id=" " placeholder=" ">
@@ -114,11 +128,8 @@
                           The hire date field is required.   
                         </div>
                         @endif
-                    </div>                     
-                </div> 
-                
-                <div class="row"> 
-                    <div class="form-group col-6">
+                    </div>   
+                    <div class="form-group col-4">
                         <label for="">Address</label>
                         <input type="text" class="form-control" name="address01" id=" " placeholder="Address">
                         @if ($errors->has('address01'))
@@ -127,7 +138,7 @@
                         </div>
                         @endif
                     </div>
-                    <div class="form-group col-6">
+                    <div class="form-group col-4">
                         <label for=" ">Address 2</label>
                         <input type="text" class="form-control" name="address02" id="" placeholder="Address 02">
                     </div> 
@@ -153,8 +164,8 @@
                 <div class="row"> 
                   <div class="form-group col-4">
                       <label for="">Username</label>
-                      <input type="text" class="form-control" name="username" id=" " placeholder="Username">
-                      @if ($errors->has('username'))
+                      <input type="text" class="form-control" name="user_name" id=" " placeholder="Username">
+                      @if ($errors->has('user_name'))
                       <div class="error alert-danger ">
                         The address field is required.   
                       </div>
@@ -162,7 +173,8 @@
                   </div>
                   <div class="form-group col-4">
                       <label for=" ">Password</label>
-                      <input type="text" class="form-control" name="password" id="" placeholder="password">
+                      <input type="password" class="form-control" name="password" id="password" placeholder="password">
+                      <input type="checkbox" id="checkbox">Show Password
                   </div> 
                 </div>
               </div>
