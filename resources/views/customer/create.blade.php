@@ -109,11 +109,7 @@
                     </div>    
                 </div>
               </div>
-              <!-- /.card-body -->
-
-
-
-
+              <!-- /.card-body -->  
 
               <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Save</button>
@@ -130,7 +126,5 @@
       <!-- /.row -->
     </div><!-- /.container-fluid -->
   </section>
-
-
-
+  
 @endsection

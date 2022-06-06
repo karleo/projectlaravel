@@ -49,7 +49,7 @@
                 <div class="row">
                   <div class="form-group col-3">
                     <label for="">Employee No.</label>
-                    <input type="text" class="form-control" name="emp_no " id="" placeholder="Employee No.">
+                    <input type="text" class="form-control" name="emp_no" id="" placeholder="Employee No.">
                     @if ($errors->has('emp_no'))
                     <div class="error alert-danger ">
                       The first name field is required.  
@@ -163,8 +163,8 @@
                 </div> 
                 <div class="row"> 
                   <div class="form-group col-4">
-                      <label for="">Username</label>
-                      <input type="text" class="form-control" name="user_name" id=" " placeholder="Username">
+                      <label for="">Email Address</label>
+                      <input type="text" class="form-control" name="user_name" id=" " placeholder="Email Address">
                       @if ($errors->has('user_name'))
                       <div class="error alert-danger ">
                         The address field is required.   
@@ -197,28 +197,6 @@
 
 
 @endsection
-
-@section('js_script')
  
-
-<script type="text/javascript">
- 
- function getAge() 
-  {
-      var today = new Date();
-      
-      var birthDate = document.getElementById("birthDate");
-      var age = today.getFullYear() - birthDate.getFullYear();
-      var m = today.getMonth() - birthDate.getMonth();
-      if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) 
-      {
-          age--;
-      }
-      age.value = age;
-
-      console.log(age);
-  }
- 
-</script>
 
  

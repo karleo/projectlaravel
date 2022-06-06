@@ -90,6 +90,7 @@ class EmployeeController extends Controller
             $request->image->move(public_path('files/images'), $newImageName);
         // try{
             Employee::create([
+                'emp_no' => $data['emp_no'],
                 'first_name' =>  $data['fname'],
                 'last_name' =>  $data['lname'],
                 'middle_name' => $data['mname'],
@@ -104,7 +105,7 @@ class EmployeeController extends Controller
             
             User::create([
                 'name' => $data['user_name'],
-                'email' => '@@@',
+                'email' =>  $data['user_name'],
                 'password' => Hash::make($data['password']),
             ]);
 
@@ -184,7 +185,8 @@ class EmployeeController extends Controller
     }
 
     public function add_time(){
-        return view('timesheet.create');
+        $data_emp = Employee::all();
+        return view('timesheet.create',compact('data_emp'));
     }
     public function store_time(){
 

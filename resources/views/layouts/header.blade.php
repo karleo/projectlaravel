@@ -97,7 +97,7 @@
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
       <img src="{{asset('html/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">Project Sample</span>
+      <span class="brand-text font-weight-light">Project System</span>
     </a>
 
     <!-- Sidebar -->
@@ -332,6 +332,7 @@
 <script src="{{asset('html/plugins/datatables-buttons/js/buttons.colVis.min.js')}}"></script>
  
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.25/webcam.min.js"></script>
 <!-- OPTIONAL SCRIPTS -->
 {{-- <script src="{{asset('html/plugins/chart.js/Chart.min.js')}}"></script> --}}
 <!-- AdminLTE for demo purposes -->
@@ -471,6 +472,8 @@ $(document).ready(function(){
     });
 });
 </script>
+
+ 
 
 @yield('js_script')
 

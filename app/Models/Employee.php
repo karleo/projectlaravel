@@ -13,7 +13,8 @@ class Employee extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
- 
+      
+      'emp_no',
       'first_name',
       'last_name',
       'middle_name',
