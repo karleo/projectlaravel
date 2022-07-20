@@ -87,7 +87,7 @@ class EmployeeController extends Controller
             $newImageName = time() . '-' . $data['fname'] . ' ' .$data['lname'] . '.'. $request->image->extension();
             // $request->image->getClientOriginalName();         
 
-            $request->image->move(public_path('files/images'), $newImageName);
+            $request->image->move(public_path('files/images'), $newImageName); 
         // try{
             Employee::create([
                 'emp_no' => $data['emp_no'],
@@ -117,6 +117,7 @@ class EmployeeController extends Controller
             $Employee = Employee::find($employeeID); 
             $Employee->user_id = $userid;          
             $Employee->save();
+            // $qrcodepath = QrCode::size(200)->format('png')->generate(config('app.url').'/qr/'.$validated['emp_no'], public_path('qr'.$validated['emp_no'].'.png'));  
 
         // }
         // catch(Exception $e){
