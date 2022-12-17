@@ -1,7 +1,7 @@
 @extends('layouts.header')
 
 @section('content')
-      
+
 <!-- section header-->
 <section class="content-header">
     <div class="container-fluid">
@@ -20,7 +20,7 @@
   </section>
 <!-- section end-->
 
-    
+
 <section class="content">
     <div class="container-fluid">
       <div class="row">
@@ -36,7 +36,7 @@
             <!-- form start -->
             <form action="{{route('city.store')}}" method="post" role="form">
                 @csrf
-                
+
               <div class="card-body">
                 <div class="row">
                 <div class="form-group col-3">
@@ -54,7 +54,7 @@
                   <input type="text" class="form-control" name="cname" id="" placeholder="City Name">
                   @if ($errors->has('cname'))
                   <div class="error alert-danger ">
-                    The city name field is required.  
+                    The city name field is required.
                     {{-- {{ $errors->first('fname') }}  --}}
                   </div>
                   @endif
@@ -63,7 +63,7 @@
                   <label for="">Code </label>
                   <input type="text" class="form-control" name="code" id="" placeholder="Code">
                 </div>
-                              
+
               </div>
               <!-- /.card-body -->
               <div class="card-footer">
@@ -71,11 +71,11 @@
               </div>
             </form>
           </div>
-          <!-- /.card --> 
+          <!-- /.card -->
 
         </div>
- 
-         
+
+
       </div>
       <!-- /.row -->
     </div><!-- /.container-fluid -->
